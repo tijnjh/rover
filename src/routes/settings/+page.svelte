@@ -69,17 +69,7 @@
     <ListView>
       <ListItem
         class="justify-between"
-        href="https://buymeacoffee.com/jnsdotgg"
-      >
-        <div class="flex items-center gap-2">
-          <Cafe />
-          Buy Me a Coffee
-        </div>
-        <ChevronForward class="text-[var(--gray-2)]" />
-      </ListItem>
-      <ListItem
-        class="justify-between"
-        href="https://github.com/jnsdotgg/rover"
+        href="https://tijn.dev/rover"
       >
         View on GitHub
         <ChevronForward class="text-[var(--gray-2)]" />
