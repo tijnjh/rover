@@ -56,7 +56,9 @@ export default function PostDetail({
 					<IonButtons slot="start">
 						<IonBackButton defaultHref="/posts" text="Subreddits" />
 					</IonButtons>
-					<IonTitle>Back</IonTitle>
+					<IonTitle>
+						{data?.[0].data.children[0].data.num_comments} Comments
+					</IonTitle>
 				</IonToolbar>
 			</IonHeader>
 
