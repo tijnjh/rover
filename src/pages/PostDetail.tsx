@@ -3,74 +3,83 @@ import { useQuery } from "@tanstack/react-query";
 import { effetch } from "tsuite";
 import type * as Reddit from "@/lib/reddit-types";
 import {
-	IonBackButton,
-	IonButtons,
-	IonContent,
-	IonHeader,
-	IonList,
-	IonPage,
-	IonSpinner,
-	IonTitle,
-	IonToolbar,
-	useIonToast,
+  IonBackButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonItem,
+  IonList,
+  IonPage,
+  IonSpinner,
+  IonTitle,
+  IonToolbar,
+  useIonToast,
 } from "@ionic/react";
+import { unescape as unesc } from "html-escaper";
+import Comment from "@/components/Comment";
 
 type PostDetailResult = [
-	{
-		data: {
-			children: [Reddit.Link];
-		};
-	},
+  {
+    data: {
+      children: [Reddit.Link];
+    };
+  },
 ];
 
 export default function PostDetail({
-	subreddit,
-	id,
+  subreddit,
+  id,
 }: {
-	subreddit: string;
-	id: string;
+  subreddit: string;
+  id: string;
 }) {
-	const [present] = useIonToast();
+  const [present] = useIonToast();
 
-	const { data, error, isPending } = useQuery({
-		queryKey: [`detail-${id}`],
-		queryFn: () =>
-			effetch<PostDetailResult>(
-				`https://www.reddit.com/r/${subreddit}/comments/${id}.json`,
-			),
-	});
+  const { data, error, isPending } = useQuery({
+    queryKey: [`detail-${id}`],
+    queryFn: () =>
+      effetch<PostDetailResult>(
+        `https://www.reddit.com/r/${subreddit}/comments/${id}.json`,
+      ),
+  });
 
-	console.log(data?.[0]);
+  if (error) {
+    present({
+      message: `Failed to load post: ${error}`,
+    });
+    return;
+  }
 
-	if (error) {
-		present({
-			message: `Failed to load post: ${error}`,
-		});
-		return;
-	}
+  return (
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/posts" text="Back" />
+          </IonButtons>
+          <IonTitle>
+            {data?.[0].data.children[0].data.num_comments} Comments
+          </IonTitle>
+        </IonToolbar>
+      </IonHeader>
 
-	return (
-		<IonPage>
-			<IonHeader>
-				<IonToolbar>
-					<IonButtons slot="start">
-						<IonBackButton defaultHref="/posts" text="Subreddits" />
-					</IonButtons>
-					<IonTitle>
-						{data?.[0].data.children[0].data.num_comments} Comments
-					</IonTitle>
-				</IonToolbar>
-			</IonHeader>
+      <IonContent fullscreen color="light">
+        {isPending ? (
+          <IonSpinner className="mx-auto block mt-10" />
+        ) : (
+          <>
+            <IonList className="mb-2">
+              <Thing.T3 post={data[0].data.children[0]} />
+            </IonList>
 
-			<IonContent fullscreen color="light">
-				{isPending ? (
-					<IonSpinner className="mx-auto block mt-10" />
-				) : (
-					<IonList>
-						<Thing.T3 post={data[0].data.children[0]} />
-					</IonList>
-				)}
-			</IonContent>
-		</IonPage>
-	);
+            <IonList>
+              {data[1].data.children.map((comment) => (
+                <Comment comment={comment} />
+              ))}
+            </IonList>
+          </>
+        )}
+      </IonContent>
+    </IonPage>
+  );
 }
