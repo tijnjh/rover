@@ -37,7 +37,7 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
             op={comment.data.is_submitter}
             mod={comment.data.distinguished === "moderator"}
           /> */}
-          <div className="flex items-center justify-between w-full grow overflow-hidden text-[var(--gray-1)] grow">
+          <div className="flex items-center justify-between w-full overflow-hidden text-[var(--gray-1)] grow">
             <div className="flex items-center w-full gap-2">
               <div className="whitespace-nowrap">{comment.data.author}</div>
               <div className="flex items-center gap-2">
@@ -82,7 +82,7 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
       </IonItem>
       <AnimateHeight height={isCollapsed ? 0 : "auto"}>
         {!!comment.data.replies &&
-          comment.data.replies.data.children.map((reply) => (
+          comment.data.replies.data.children.map((reply: Reddit.Comment) => (
             <Comment comment={reply} key={reply.id} />
           ))}
       </AnimateHeight>

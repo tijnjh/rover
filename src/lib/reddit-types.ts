@@ -41,7 +41,7 @@ export interface Comment extends Thing, Votable, Created {
     link_url: string;
     num_reports: number | null;
     parent_id: string;
-    replies: Thing;
+    replies: any; // for now
     saved: boolean;
     score: number;
     score_hidden: boolean;
@@ -50,6 +50,7 @@ export interface Comment extends Thing, Votable, Created {
     subreddit_id: string;
     distinguished: string;
     depth: number;
+    locked: boolean;
   };
 }
 

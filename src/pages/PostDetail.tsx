@@ -24,6 +24,7 @@ type PostDetailResult = [
       children: [Reddit.Link];
     };
   },
+  any,
 ];
 
 export default function PostDetail({
@@ -73,7 +74,7 @@ export default function PostDetail({
             </IonList>
 
             <IonList>
-              {data[1].data.children.map((comment) => (
+              {data[1]?.data.children.map((comment: Reddit.Comment) => (
                 <Comment comment={comment} />
               ))}
             </IonList>
