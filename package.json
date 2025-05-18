@@ -26,6 +26,7 @@
 		"react-router-dom": "^5.3.4",
 		"tailwindcss": "^4.1.7",
 		"tsuite": "^0.5.4-2",
+		"react-animate-height": "latest",
 		"vite-tsconfig-paths": "^5.1.4"
 	},
 	"devDependencies": {
