@@ -1,0 +1,33 @@
+import {
+  IonBackButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
+
+import FeedView from "@/components/views/FeedView";
+
+export default function Popular() {
+  return (
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/posts" text="Subreddits" />
+          </IonButtons>
+          <IonTitle>Popular posts</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+
+      <IonContent fullscreen color="light">
+        <FeedView
+          url="https://www.reddit.com/hot.json"
+          queryKey={["feed-hot"]}
+        />
+      </IonContent>
+    </IonPage>
+  );
+}
