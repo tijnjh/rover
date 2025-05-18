@@ -6,74 +6,74 @@ import Media from "./subcomponents/Media";
 import { IonIcon, IonItem } from "@ionic/react";
 
 import {
-  arrowUp,
-  chatbubbleOutline,
-  happyOutline,
-  timeOutline,
+	arrowUp,
+	chatbubbleOutline,
+	happyOutline,
+	timeOutline,
 } from "ionicons/icons";
 import { formatNumber } from "@/lib/utils";
 import moment from "moment";
 
 function transformPermalink(url: string) {
-  const newUrl = url.split("/").slice(0, 5).join("/");
-  return newUrl;
+	const newUrl = url.split("/").slice(0, 5).join("/");
+	return newUrl;
 }
 
 export default {
-  T3: ({ post }: { post: Reddit.Link }) => {
-    return (
-      <IonItem
-        detail={false}
-        routerLink={transformPermalink(post.data.permalink)}
-        lines="none"
-        className="mb-2"
-        style={{ "--padding-start": "0", "--padding-end": "0" }}
-      >
-        <div className="grid grid-cols-1 my-4 gap-4">
-          <div className="mx-4">
-            {unesc(post.data.title)}{" "}
-            {!!post.data.link_flair_text && (
-              <Flair text={post.data.link_flair_text} />
-            )}
-          </div>
+	T3: ({ post }: { post: Reddit.Link }) => {
+		return (
+			<IonItem
+				detail={false}
+				routerLink={transformPermalink(post.data.permalink)}
+				lines="none"
+				className="mb-2"
+				style={{ "--padding-start": "0", "--padding-end": "0" }}
+			>
+				<div className="grid grid-cols-1 my-4 gap-4">
+					<div className="mx-4">
+						{unesc(post.data.title)}{" "}
+						{!!post.data.link_flair_text && (
+							<Flair text={post.data.link_flair_text} />
+						)}
+					</div>
 
-          {!!post.data.url && <Media post={post} />}
+					{!!post.data.url && <Media post={post} />}
 
-          <div className="mx-4 flex text-[15px] flex-col gap-2 text-[var(--gray-1)]">
-            <div>
-              <span className="font-medium">{post.data.subreddit}</span>
-              {" by "}
-              <span className="font-medium">{post.data.author}</span>
-            </div>
+					<div className="mx-4 flex text-[15px] flex-col gap-2 text-[var(--gray-1)]">
+						<div>
+							<span className="font-medium">{post.data.subreddit}</span>
+							{" by "}
+							<span className="font-medium">{post.data.author}</span>
+						</div>
 
-            <div className="flex font-medium gap-3 *:flex *:items-center *:gap-1">
-              <div>
-                <IonIcon size="18" aria-hidden="true" icon={arrowUp} />
-                {formatNumber(post.data.score)}
-              </div>
+						<div className="flex font-medium gap-3 *:flex *:items-center *:gap-1">
+							<div>
+								<IonIcon size="18" aria-hidden="true" icon={arrowUp} />
+								{formatNumber(post.data.score)}
+							</div>
 
-              <div>
-                <IonIcon
-                  size="18"
-                  aria-hidden="true"
-                  icon={chatbubbleOutline}
-                />
+							<div>
+								<IonIcon
+									size="18"
+									aria-hidden="true"
+									icon={chatbubbleOutline}
+								/>
 
-                {formatNumber(post.data.num_comments)}
-              </div>
-              <div>
-                <IonIcon size="18" aria-hidden="true" icon={happyOutline} />
-                {post.data.upvote_ratio * 100}%
-              </div>
+								{formatNumber(post.data.num_comments)}
+							</div>
+							<div>
+								<IonIcon size="18" aria-hidden="true" icon={happyOutline} />
+								{post.data.upvote_ratio * 100}%
+							</div>
 
-              <div>
-                <IonIcon size="18" aria-hidden="true" icon={timeOutline} />
-                {moment.unix(post.data.created).fromNow()}
-              </div>
-            </div>
-          </div>
-        </div>
-      </IonItem>
-    );
-  },
+							<div>
+								<IonIcon size="18" aria-hidden="true" icon={timeOutline} />
+								{moment.unix(post.data.created).fromNow()}
+							</div>
+						</div>
+					</div>
+				</div>
+			</IonItem>
+		);
+	},
 };
