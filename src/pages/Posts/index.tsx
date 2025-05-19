@@ -27,7 +27,7 @@ export default function Posts() {
 							aria-hidden="true"
 							icon={trendingUp}
 							slot="start"
-							className="rounded-full bg-(--blue) p-1"
+							className="rounded-full bg-(--blue) p-1 text-white"
 						/>
 						<IonLabel>
 							Popular Posts
