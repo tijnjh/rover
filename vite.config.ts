@@ -5,15 +5,15 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import { fileURLToPath } from "node:url";
 
 export default defineConfig({
-  plugins: [
-    react({
-      babel: {
-        plugins: [["babel-plugin-react-compiler"]],
-      },
-    }),
-    tailwindcss(),
-    tsconfigPaths({
-      root: fileURLToPath(new URL(".", import.meta.url)),
-    }),
-  ],
+	plugins: [
+		react({
+			babel: {
+				plugins: [["babel-plugin-react-compiler"]],
+			},
+		}),
+		tailwindcss(),
+		tsconfigPaths({
+			root: fileURLToPath(new URL(".", import.meta.url)),
+		}),
+	],
 });
