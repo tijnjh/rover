@@ -1,7 +1,5 @@
 {
-	"name": "rover-tsx",
 	"private": true,
-	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -51,6 +49,5 @@
 		"typescript-eslint": "^8.32.1",
 		"vite": "~5.2.14",
 		"vitest": "^0.34.6"
-	},
-	"description": "An Ionic project"
+	}
 }

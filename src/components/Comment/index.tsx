@@ -42,11 +42,6 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
 				/>
 
 				<div className="px-4 py-2">
-					{/* <Author
-            author={comment.data.author}
-            op={comment.data.is_submitter}
-            mod={comment.data.distinguished === "moderator"}
-          /> */}
 					<div className="flex w-full grow items-center justify-between overflow-hidden text-(--gray-1)">
 						<div className="flex w-full items-center gap-2">
 							<div className="whitespace-nowrap">{comment.data.author}</div>
@@ -70,18 +65,7 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
 									<Flair text={comment.data.author_flair_text} />
 								</div>
 							)}
-							<div className="flex grow items-center justify-end self-end">
-								{/* {!isCollapsed ? (
-                  <div className="flex items-center gap-2">
-                    <button onClick={() => console.log(comment)}>
-                      <EllipsisHorizontal size={18} />
-                    </button>
-                    {moment.unix(comment.data.created).fromNow()}
-                  </div>
-                ) : ( */}
-								{/* <ChevronDown size={22} className="text-[var(--gray-4)]" /> */}
-								{/* )} */}
-							</div>
+							<div className="flex grow items-center justify-end self-end" />
 						</div>
 					</div>
 
