@@ -1,4 +1,3 @@
-import { Redirect, Route } from "react-router-dom";
 import {
 	IonApp,
 	IonIcon,
@@ -11,6 +10,7 @@ import {
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { cog, search, settings, telescope } from "ionicons/icons";
+import { Redirect, Route } from "react-router-dom";
 import Posts from "./pages/Posts";
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -41,12 +41,12 @@ import "./App.css";
 /* import '@ionic/react/css/palettes/dark.class.css'; */
 import "@ionic/react/css/palettes/dark.system.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import Popular from "./pages/Posts/Popular";
-import PostDetail from "./pages/PostDetail";
 import moment from "moment";
+import PostDetail from "./pages/PostDetail";
+import Popular from "./pages/Posts/Popular";
 import Search from "./pages/Search";
-import Subreddit from "./pages/Subreddit";
 import Settings from "./pages/Settings";
+import Subreddit from "./pages/Subreddit";
 
 const queryClient = new QueryClient();
 

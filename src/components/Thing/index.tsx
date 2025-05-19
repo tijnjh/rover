@@ -1,17 +1,18 @@
 import { unescape as unesc } from "html-escaper";
 
 import type * as Reddit from "@/lib/reddit-types";
-import Flair from "@/components/Flair";
 import Media from "./subcomponents/Media";
+
+import Flair from "@/components/Flair";
 import { IonIcon, IonItem } from "@ionic/react";
 
+import { formatNumber } from "@/lib/utils";
 import {
 	arrowUp,
 	chatbubbleOutline,
 	happyOutline,
 	timeOutline,
 } from "ionicons/icons";
-import { formatNumber } from "@/lib/utils";
 import moment from "moment";
 import { useEffect, useState } from "react";
 

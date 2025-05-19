@@ -1,7 +1,6 @@
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { effetch } from "tsuite";
-import type * as Reddit from "@/lib/reddit-types";
 import LoadingIndicator from "@/components/LoadingIndicator";
+import Thing from "@/components/Thing";
+import type * as Reddit from "@/lib/reddit-types";
 import {
 	IonContent,
 	IonInfiniteScroll,
@@ -9,8 +8,9 @@ import {
 	IonList,
 	useIonToast,
 } from "@ionic/react";
-import Thing from "@/components/Thing";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import { effetch } from "tsuite";
 
 const POST_LIMIT = 8;
 

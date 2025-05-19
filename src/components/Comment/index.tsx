@@ -1,12 +1,12 @@
-import { IonIcon, IonItem } from "@ionic/react";
 import type * as Reddit from "@/lib/reddit-types";
-import { useState } from "react";
+import { IonIcon, IonItem } from "@ionic/react";
 import { unescape as unesc } from "html-escaper";
+import { useState } from "react";
 import "./theme.css";
-import AnimateHeight from "react-animate-height";
-import { arrowUp, lockClosed } from "ionicons/icons";
+import Flair from "@/components/Flair";
 import { formatNumber } from "@/lib/utils";
-import Flair from "../Flair";
+import { arrowUp, lockClosed } from "ionicons/icons";
+import AnimateHeight from "react-animate-height";
 
 const allowedImageEmbeds = ["https://i.redd.it/", "https://preview.redd.it/"];
 

@@ -1,6 +1,5 @@
+import Comment from "@/components/Comment";
 import Thing from "@/components/Thing";
-import { useQuery } from "@tanstack/react-query";
-import { effetch } from "tsuite";
 import type * as Reddit from "@/lib/reddit-types";
 import {
 	IonBackButton,
@@ -14,7 +13,8 @@ import {
 	IonToolbar,
 	useIonToast,
 } from "@ionic/react";
-import Comment from "@/components/Comment";
+import { useQuery } from "@tanstack/react-query";
+import { effetch } from "tsuite";
 
 type PostDetailResult = [
 	{
