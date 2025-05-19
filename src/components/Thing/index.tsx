@@ -13,6 +13,7 @@ import {
 } from "ionicons/icons";
 import { formatNumber } from "@/lib/utils";
 import moment from "moment";
+import { useEffect, useState } from "react";
 
 function transformPermalink(url: string) {
 	const newUrl = url.split("/").slice(0, 5).join("/");
@@ -21,6 +22,13 @@ function transformPermalink(url: string) {
 
 export default {
 	T3: ({ post }: { post: Reddit.Link }) => {
+		const [inDetail, setInDetail] = useState(false);
+
+		useEffect(() => {
+			const regex = /^\/r\/.*\/comments\/.*$/;
+			setInDetail(regex.test(location.pathname));
+		}, []);
+
 		return (
 			<IonItem
 				detail={false}
@@ -40,6 +48,12 @@ export default {
 					{!!post.data.url && <Media post={post} />}
 
 					<div className="mx-4 flex flex-col gap-2 text-(--gray-1) text-[15px]">
+						{!!post.data.selftext && (
+							<p className={`mt-0 ${!inDetail && "line-clamp-3"}`}>
+								{post.data.selftext}
+							</p>
+						)}
+
 						<div>
 							<span className="font-medium">{post.data.subreddit}</span>
 							{" by "}
