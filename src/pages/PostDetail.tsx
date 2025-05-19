@@ -22,7 +22,11 @@ type PostDetailResult = [
 			children: [Reddit.Link];
 		};
 	},
-	any,
+	{
+		data: {
+			children: [Reddit.Comment];
+		};
+	},
 ];
 
 export default function PostDetail({

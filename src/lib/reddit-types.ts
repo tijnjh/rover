@@ -41,7 +41,10 @@ export interface Comment extends Thing, Votable, Created {
 		link_url: string;
 		num_reports: number | null;
 		parent_id: string;
+
+		// biome-ignore lint:
 		replies: any; // for now
+
 		saved: boolean;
 		score: number;
 		score_hidden: boolean;
