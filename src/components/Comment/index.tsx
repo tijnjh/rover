@@ -22,7 +22,11 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
 					setIsCollapsed(!isCollapsed);
 				}}
 				className="grid grid-cols-1 relative text-[15px]"
-				style={{ paddingInlineStart: `${comment.data.depth * 0.75}rem` }}
+				style={{
+					paddingInlineStart: `${comment.data.depth * 0.75}rem`,
+					"--padding-start": "0",
+					"--padding-end": "0",
+				}}
 			>
 				<div
 					className="w-0.5 rounded-full h-[calc(100%-1rem)] top-2 absolute"
@@ -31,13 +35,13 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
 					}}
 				/>
 
-				<div className="pl-3 py-2">
+				<div className="py-2 px-4">
 					{/* <Author
             author={comment.data.author}
             op={comment.data.is_submitter}
             mod={comment.data.distinguished === "moderator"}
           /> */}
-					<div className="flex items-center justify-between w-full overflow-hidden text-[var(--gray-1)] grow">
+					<div className="flex items-center justify-between  w-full overflow-hidden text-(--gray-1) grow">
 						<div className="flex items-center w-full gap-2">
 							<div className="whitespace-nowrap">{comment.data.author}</div>
 							<div className="flex items-center gap-2">
