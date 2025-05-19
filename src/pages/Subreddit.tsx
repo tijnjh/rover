@@ -1,5 +1,7 @@
 import FeedView from "@/components/views/FeedView";
 import {
+	IonBackButton,
+	IonButtons,
 	IonContent,
 	IonHeader,
 	IonPage,
@@ -12,6 +14,9 @@ export default function Search({ subreddit }: { subreddit: string }) {
 		<IonPage>
 			<IonHeader>
 				<IonToolbar>
+					<IonButtons slot="start">
+						<IonBackButton text="Back" />
+					</IonButtons>
 					<IonTitle>r/{subreddit}</IonTitle>
 				</IonToolbar>
 			</IonHeader>
