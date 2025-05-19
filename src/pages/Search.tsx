@@ -31,7 +31,7 @@ export default function Search() {
 				</IonToolbar>
 			</IonHeader>
 
-			<IonContent fullscreen color="light">
+			<IonContent color="light">
 				<IonList inset>
 					{!query?.includes(" ") && query && (
 						<IonItem routerLink={`/r/${query}`}>

@@ -1,4 +1,5 @@
 import Comment from "@/components/Comment";
+import LoadingIndicator from "@/components/LoadingIndicator";
 import Thing from "@/components/Thing";
 import type * as Reddit from "@/lib/reddit-types";
 import {
@@ -6,6 +7,7 @@ import {
 	IonButtons,
 	IonContent,
 	IonHeader,
+	IonItem,
 	IonList,
 	IonPage,
 	IonSpinner,
@@ -66,12 +68,12 @@ export default function PostDetail({
 				</IonToolbar>
 			</IonHeader>
 
-			<IonContent fullscreen color="light">
+			<IonContent color="light">
 				{isPending ? (
-					<IonSpinner className="mx-auto mt-10 block" />
+					<LoadingIndicator />
 				) : (
 					<>
-						<IonList className="mb-2">
+						<IonList className="mb-4!">
 							<Thing.T3 post={data[0].data.children[0]} />
 						</IonList>
 

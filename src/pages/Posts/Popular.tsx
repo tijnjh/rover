@@ -22,7 +22,7 @@ export default function Popular() {
 				</IonToolbar>
 			</IonHeader>
 
-			<IonContent fullscreen color="light">
+			<IonContent color="light">
 				<FeedView
 					url="https://www.reddit.com/hot.json"
 					queryKey={["feed-hot"]}

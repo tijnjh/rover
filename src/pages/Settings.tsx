@@ -18,7 +18,7 @@ export default function Settings() {
 				</IonToolbar>
 			</IonHeader>
 
-			<IonContent fullscreen color="light">
+			<IonContent color="light">
 				<IonList inset>
 					<IonItem href="https://tijn.dev/rover">
 						<IonLabel>View on github</IonLabel>

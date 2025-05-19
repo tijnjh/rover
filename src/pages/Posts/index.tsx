@@ -20,7 +20,7 @@ export default function Posts() {
 				</IonToolbar>
 			</IonHeader>
 
-			<IonContent fullscreen color="light">
+			<IonContent color="light">
 				<IonList>
 					<IonItem routerLink="/posts/popular">
 						<IonIcon

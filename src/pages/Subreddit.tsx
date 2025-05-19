@@ -21,7 +21,7 @@ export default function Search({ subreddit }: { subreddit: string }) {
 				</IonToolbar>
 			</IonHeader>
 
-			<IonContent fullscreen color="light">
+			<IonContent color="light">
 				<FeedView
 					url={`https://www.reddit.com/r/${subreddit}.json`}
 					queryKey={[`subreddit-${subreddit}`]}
