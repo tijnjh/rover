@@ -32,7 +32,9 @@ export default {
 		return (
 			<IonItem
 				detail={false}
-				routerLink={transformPermalink(post.data.permalink)}
+				routerLink={
+					!inDetail ? transformPermalink(post.data.permalink) : undefined
+				}
 				lines="none"
 				className="mb-2"
 				style={{ "--padding-start": "0", "--padding-end": "0" }}
