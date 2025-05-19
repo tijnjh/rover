@@ -1,6 +1,7 @@
 import {
 	IonContent,
 	IonHeader,
+	IonIcon,
 	IonItem,
 	IonLabel,
 	IonList,
@@ -8,6 +9,7 @@ import {
 	IonTitle,
 	IonToolbar,
 } from "@ionic/react";
+import { trendingUp } from "ionicons/icons";
 
 export default function Posts() {
 	return (
@@ -21,7 +23,16 @@ export default function Posts() {
 			<IonContent fullscreen color="light">
 				<IonList>
 					<IonItem routerLink="/posts/popular">
-						<IonLabel>Popular posts</IonLabel>
+						<IonIcon
+							aria-hidden="true"
+							icon={trendingUp}
+							slot="start"
+							className="bg-(--blue) p-1 rounded-full"
+						/>
+						<IonLabel>
+							Popular Posts
+							<p>Most popular posts across Reddit</p>
+						</IonLabel>
 					</IonItem>
 				</IonList>
 			</IonContent>
