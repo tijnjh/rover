@@ -8,12 +8,18 @@ import { arrowUp, lockClosed } from "ionicons/icons";
 import { formatNumber } from "@/lib/utils";
 import Flair from "../Flair";
 
+const allowedImageEmbeds = ["https://i.redd.it/", "https://preview.redd.it/"];
+
 export default function Comment({ comment }: { comment: Reddit.Comment }) {
 	const [isCollapsed, setIsCollapsed] = useState(false);
 
 	if (!comment.data.body) {
 		return;
 	}
+
+	const isImageEmbed = allowedImageEmbeds.some((prefix) =>
+		comment.data.body.startsWith(prefix),
+	);
 
 	return (
 		<>
@@ -80,7 +86,17 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
 					</div>
 
 					<AnimateHeight height={isCollapsed ? 0 : "auto"}>
-						<div>{unesc(comment.data.body)}</div>
+						<div>
+							{isImageEmbed ? (
+								<img
+									src={unesc(comment.data.body)}
+									alt="Comment embed"
+									className="w-36"
+								/>
+							) : (
+								unesc(comment.data.body)
+							)}
+						</div>
 					</AnimateHeight>
 				</div>
 			</IonItem>
