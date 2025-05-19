@@ -21,7 +21,9 @@ import "./App.css";
 
 import "@ionic/react/css/palettes/dark.system.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import moment from "moment";
+import dayjs from "dayjs";
+import updateLocale from "dayjs/plugin/updateLocale";
+import relativeTime from "dayjs/plugin/relativeTime";
 import PostDetail from "./pages/PostDetail";
 import Popular from "./pages/Posts/Popular";
 import Search from "./pages/Search";
@@ -32,7 +34,10 @@ const queryClient = new QueryClient();
 
 setupIonicReact();
 
-moment.updateLocale("en", {
+dayjs.extend(updateLocale);
+dayjs.extend(relativeTime);
+
+dayjs.updateLocale("en", {
 	relativeTime: {
 		future: "in %s",
 		past: "%s",
