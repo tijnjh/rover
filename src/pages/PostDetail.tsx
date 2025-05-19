@@ -64,7 +64,7 @@ export default function PostDetail({
 
 			<IonContent fullscreen color="light">
 				{isPending ? (
-					<IonSpinner className="mx-auto block mt-10" />
+					<IonSpinner className="mx-auto mt-10 block" />
 				) : (
 					<>
 						<IonList className="mb-2">

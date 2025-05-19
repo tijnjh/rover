@@ -29,7 +29,7 @@ export default {
 				className="mb-2"
 				style={{ "--padding-start": "0", "--padding-end": "0" }}
 			>
-				<div className="grid grid-cols-1 my-4 gap-4">
+				<div className="my-4 grid grid-cols-1 gap-4">
 					<div className="mx-4">
 						{unesc(post.data.title)}{" "}
 						{!!post.data.link_flair_text && (
@@ -39,14 +39,14 @@ export default {
 
 					{!!post.data.url && <Media post={post} />}
 
-					<div className="mx-4 flex text-[15px] flex-col gap-2 text-[var(--gray-1)]">
+					<div className="mx-4 flex flex-col gap-2 text-(--gray-1) text-[15px]">
 						<div>
 							<span className="font-medium">{post.data.subreddit}</span>
 							{" by "}
 							<span className="font-medium">{post.data.author}</span>
 						</div>
 
-						<div className="flex font-medium gap-3 *:flex *:items-center *:gap-1">
+						<div className="flex gap-3 font-medium *:flex *:items-center *:gap-1">
 							<div>
 								<IonIcon size="18" aria-hidden="true" icon={arrowUp} />
 								{formatNumber(post.data.score)}

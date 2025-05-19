@@ -21,7 +21,7 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
 				onClick={() => {
 					setIsCollapsed(!isCollapsed);
 				}}
-				className="grid grid-cols-1 relative text-[15px]"
+				className="relative grid grid-cols-1 text-[15px]"
 				style={{
 					paddingInlineStart: `${comment.data.depth * 0.75}rem`,
 					"--padding-start": "0",
@@ -29,20 +29,20 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
 				}}
 			>
 				<div
-					className="w-0.5 rounded-full h-[calc(100%-1rem)] top-2 absolute"
+					className="absolute top-2 h-[calc(100%-1rem)] w-0.5 rounded-full"
 					style={{
 						backgroundColor: `var(--rainbow-depth-${comment.data.depth})`,
 					}}
 				/>
 
-				<div className="py-2 px-4">
+				<div className="px-4 py-2">
 					{/* <Author
             author={comment.data.author}
             op={comment.data.is_submitter}
             mod={comment.data.distinguished === "moderator"}
           /> */}
-					<div className="flex items-center justify-between  w-full overflow-hidden text-(--gray-1) grow">
-						<div className="flex items-center w-full gap-2">
+					<div className="flex w-full grow items-center justify-between overflow-hidden text-(--gray-1)">
+						<div className="flex w-full items-center gap-2">
 							<div className="whitespace-nowrap">{comment.data.author}</div>
 							<div className="flex items-center gap-2">
 								<div className="flex items-center">
@@ -55,16 +55,16 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
 									<IonIcon
 										icon={lockClosed}
 										size="18"
-										className="text-[var(--green)]"
+										className="text-(--green)"
 									/>
 								)}
 							</div>
 							{comment.data.author_flair_text && (
-								<div className="overflow-hidden shrink grow-0">
+								<div className="shrink grow-0 overflow-hidden">
 									<Flair text={comment.data.author_flair_text} />
 								</div>
 							)}
-							<div className="flex items-center self-end justify-end grow">
+							<div className="flex grow items-center justify-end self-end">
 								{/* {!isCollapsed ? (
                   <div className="flex items-center gap-2">
                     <button onClick={() => console.log(comment)}>
