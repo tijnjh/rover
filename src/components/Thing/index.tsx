@@ -38,7 +38,12 @@ export default {
 				}
 				lines="none"
 				className="mb-2"
-				style={{ "--padding-start": "0", "--padding-end": "0" }}
+				style={{
+					"--padding-start": 0,
+					"--padding-end": 0,
+					"--inner-padding-start": 0,
+					"--inner-padding-end": 0,
+				}}
 			>
 				<div className="my-4 grid grid-cols-1 gap-4">
 					<div className="mx-4">

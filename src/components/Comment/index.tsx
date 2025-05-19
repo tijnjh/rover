@@ -30,8 +30,11 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
 				className="relative grid grid-cols-1 text-[15px]"
 				style={{
 					paddingInlineStart: `${comment.data.depth * 0.75}rem`,
-					"--padding-start": "0",
-					"--padding-end": "0",
+
+					"--padding-start": 0,
+					"--padding-end": 0,
+					"--inner-padding-start": 0,
+					"--inner-padding-end": 0,
 				}}
 			>
 				<div
