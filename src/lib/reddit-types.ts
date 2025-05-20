@@ -23,8 +23,8 @@ export interface Created {
 	created_utc: number;
 }
 
-export interface Comment extends Thing, Votable, Created {
-	data: {
+export interface Comment extends Thing, Votable {
+	data: Created & {
 		id: string;
 		approved_by: string | null;
 		author: string;

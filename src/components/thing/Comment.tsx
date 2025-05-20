@@ -5,8 +5,9 @@ import { useState } from "react";
 import "./Comment.css";
 import Flair from "@/components/common/Flair";
 import { formatNumber } from "@/lib/utils";
-import { arrowUp, lockClosed } from "ionicons/icons";
+import { arrowUp, lockClosed, timeOutline } from "ionicons/icons";
 import AnimateHeight from "react-animate-height";
+import dayjs from "dayjs";
 
 const allowedImageEmbeds = ["https://i.redd.it/", "https://preview.redd.it/"];
 
@@ -32,7 +33,6 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
 				className="relative grid grid-cols-1 text-[15px]"
 				style={{
 					paddingInlineStart: `${comment.data.depth * 0.75}rem`,
-
 					"--padding-start": 0,
 					"--padding-end": 0,
 					"--inner-padding-start": 0,
@@ -48,44 +48,18 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
 
 				<div className="px-4 py-2">
 					<div className="flex w-full grow items-center justify-between overflow-hidden text-(--gray-1)">
-						<div className="flex w-full items-center gap-2">
-							<div className="whitespace-nowrap">{comment.data.author}</div>
-							<div className="flex items-center gap-2">
-								<div className="flex items-center">
-									<IonIcon icon={arrowUp} size="18" />
-									{!comment.data.score_hidden
-										? formatNumber(comment.data.score)
-										: "-"}
-								</div>
-								{comment.data.locked && (
-									<IonIcon
-										icon={lockClosed}
-										size="18"
-										className="text-(--green)"
-									/>
-								)}
-							</div>
-							{comment.data.author_flair_text && (
-								<div className="shrink grow-0 overflow-hidden">
-									<Flair text={comment.data.author_flair_text} />
-								</div>
-							)}
-							<div className="flex grow items-center justify-end self-end" />
-						</div>
+						<CommentMeta
+							author={comment.data.author}
+							score={comment.data.score}
+							score_hidden={comment.data.score_hidden}
+							locked={comment.data.locked}
+							author_flair_text={comment.data.author_flair_text}
+							created={comment.data.created}
+						/>
 					</div>
 
 					<AnimateHeight height={isCollapsed ? 0 : "auto"}>
-						<div>
-							{isImageEmbed ? (
-								<img
-									src={unesc(comment.data.body)}
-									alt="Comment embed"
-									className="w-36"
-								/>
-							) : (
-								unesc(comment.data.body)
-							)}
-						</div>
+						<CommentBody body={comment.data.body} isImageEmbed={isImageEmbed} />
 					</AnimateHeight>
 				</div>
 			</IonItem>
@@ -97,5 +71,62 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
 				</AnimateHeight>
 			)}
 		</>
+	);
+}
+
+function CommentMeta({
+	author,
+	score,
+	score_hidden,
+	locked,
+	author_flair_text,
+	created,
+}: Pick<
+	Reddit.Comment["data"],
+	| "author"
+	| "score"
+	| "score_hidden"
+	| "locked"
+	| "author_flair_text"
+	| "created"
+>) {
+	return (
+		<div className="flex w-full items-center gap-2">
+			<div className="whitespace-nowrap">{author}</div>
+			<div className="flex items-center gap-2">
+				<div className="flex items-center">
+					<IonIcon icon={arrowUp} size="18" />
+					{!score_hidden ? formatNumber(score) : "-"}
+				</div>
+				<div className="flex items-center">
+					<IonIcon size="18" aria-hidden="true" icon={timeOutline} />
+					{dayjs.unix(created).fromNow()}
+				</div>
+				{locked && (
+					<IonIcon icon={lockClosed} size="18" className="text-(--green)" />
+				)}
+			</div>
+			{author_flair_text && (
+				<div className="shrink grow-0 overflow-hidden">
+					<Flair text={author_flair_text} />
+				</div>
+			)}
+			<div className="flex grow items-center justify-end self-end" />
+		</div>
+	);
+}
+
+function CommentBody({
+	body,
+	isImageEmbed,
+}: { body: string; isImageEmbed: boolean }) {
+	return (
+		<div>
+			{isImageEmbed ? (
+				<img src={unesc(body)} alt="Comment embed" className="w-36" />
+			) : (
+				unesc(body)
+			)}
+		</div>
 	);
 }
