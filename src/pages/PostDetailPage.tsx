@@ -1,7 +1,7 @@
-import Comment from "@/components/thing/Comment";
-import LoadingIndicator from "@/components/common/LoadingIndicator";
-import Post from "@/components/thing/Post";
-import type * as Reddit from "@/lib/reddit-types";
+import Comment from "@/components/thing/Comment.tsx";
+import LoadingIndicator from "@/components/common/LoadingIndicator.tsx";
+import Post from "@/components/thing/Post.tsx";
+import type * as Reddit from "@/lib/reddit-types.ts";
 import {
 	IonBackButton,
 	IonButtons,

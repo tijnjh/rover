@@ -1,0 +1,35 @@
+{
+  "tasks": {
+    "dev": "deno run -A --node-modules-dir npm:vite",
+    "build": "deno run -A --node-modules-dir npm:vite build",
+    "preview": "deno run -A --node-modules-dir npm:vite preview",
+    "serve": "deno run --allow-net --allow-read jsr:@std/http@1/file-server dist/"
+  },
+  "compilerOptions": {
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "jsxImportSourceTypes": "@types/react"
+  },
+  "imports": {
+    "@/": "./src/",
+    "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.4",
+    "@ionic/react": "npm:@ionic/react@^8.5.7",
+    "@ionic/react-router": "npm:@ionic/react-router@^8.5.7",
+    "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.7",
+    "@tanstack/react-query": "npm:@tanstack/react-query@^5.76.1",
+    "@types/react": "npm:@types/react@^19.0.10",
+    "@types/react-dom": "npm:@types/react-dom@^19.0.4",
+    "@vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.4",
+    "dayjs": "npm:dayjs@^1.11.13",
+    "html-escaper": "npm:html-escaper@^3.0.3",
+    "ionicons": "npm:ionicons@^8.0.8",
+    "react": "npm:react@^19.0.0",
+    "react-animate-height": "npm:react-animate-height@^3.2.3",
+    "react-dom": "npm:react-dom@^19.0.0",
+    "react-router": "npm:react-router@^5.3.4",
+    "tsuite": "npm:tsuite@^0.5.4-2",
+    "vite": "npm:vite@^6.1.1",
+    "vite-tsconfig-paths": "npm:vite-tsconfig-paths@^5.1.4"
+  }
+}

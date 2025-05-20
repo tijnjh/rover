@@ -8,7 +8,7 @@ import {
 	IonToolbar,
 } from "@ionic/react";
 
-import FeedView from "@/components/views/FeedView";
+import FeedView from "@/components/views/FeedView.tsx";
 
 export default function PopularPostsPage() {
 	return (

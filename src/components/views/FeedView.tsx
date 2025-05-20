@@ -1,6 +1,6 @@
-import LoadingIndicator from "@/components/common/LoadingIndicator";
-import Post from "@/components/thing/Post";
-import type * as Reddit from "@/lib/reddit-types";
+import LoadingIndicator from "@/components/common/LoadingIndicator.tsx";
+import Post from "@/components/thing/Post.tsx";
+import type * as Reddit from "@/lib/reddit-types.ts";
 import {
 	IonContent,
 	IonInfiniteScroll,

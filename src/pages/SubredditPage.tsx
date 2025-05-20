@@ -1,4 +1,4 @@
-import FeedView from "@/components/views/FeedView";
+import FeedView from "@/components/views/FeedView.tsx";
 import {
 	IonBackButton,
 	IonButtons,

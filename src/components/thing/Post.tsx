@@ -1,11 +1,11 @@
 import { unescape as unesc } from "html-escaper";
 
-import type * as Reddit from "@/lib/reddit-types";
-import Media from "@/components/common/Media";
-import Flair from "@/components/common/Flair";
+import type * as Reddit from "@/lib/reddit-types.ts";
+import Media from "@/components/common/Media.tsx";
+import Flair from "@/components/common/Flair.tsx";
 import { IonIcon, IonItem } from "@ionic/react";
 
-import { formatNumber } from "@/lib/utils";
+import { formatNumber } from "@/lib/utils.ts";
 import {
 	arrowUp,
 	chatbubbleOutline,

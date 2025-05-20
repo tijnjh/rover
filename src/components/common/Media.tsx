@@ -1,4 +1,4 @@
-import type * as Reddit from "@/lib/reddit-types";
+import type * as Reddit from "@/lib/reddit-types.ts";
 
 export default function Media({
 	post,

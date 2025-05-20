@@ -1,10 +1,10 @@
-import type * as Reddit from "@/lib/reddit-types";
+import type * as Reddit from "@/lib/reddit-types.ts";
 import { IonIcon, IonItem } from "@ionic/react";
 import { unescape as unesc } from "html-escaper";
 import { useState } from "react";
 import "./Comment.css";
-import Flair from "@/components/common/Flair";
-import { formatNumber } from "@/lib/utils";
+import Flair from "@/components/common/Flair.tsx";
+import { formatNumber } from "@/lib/utils.ts";
 import { arrowUp, lockClosed, timeOutline } from "ionicons/icons";
 import AnimateHeight from "react-animate-height";
 import dayjs from "dayjs";
