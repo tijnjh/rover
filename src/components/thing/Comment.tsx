@@ -89,11 +89,13 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
 					</AnimateHeight>
 				</div>
 			</IonItem>
-			<AnimateHeight height={isCollapsed ? 0 : "auto"}>
-				{comment.data.replies?.data.children.map((reply: Reddit.Comment) => (
-					<Comment comment={reply} key={reply.data.id} />
-				))}
-			</AnimateHeight>
+			{comment.data.replies && (
+				<AnimateHeight height={isCollapsed ? 0 : "auto"}>
+					{comment.data.replies.data.children.map((reply: Reddit.Comment) => (
+						<Comment comment={reply} key={reply.data.id} />
+					))}
+				</AnimateHeight>
+			)}
 		</>
 	);
 }
