@@ -35,7 +35,6 @@
     "react-router-dom": "npm:react-router-dom@^5.3.4",
     "tailwindcss": "npm:tailwindcss@^4.1.7",
     "tsuite": "npm:tsuite@^0.5.4-2",
-    "vite": "npm:vite@^6.3.5",
-    "vite-tsconfig-paths": "npm:vite-tsconfig-paths@^5.1.4"
+    "vite": "npm:vite@^6.3.5"
   }
 }
