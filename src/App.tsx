@@ -9,7 +9,13 @@ import {
 	setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { cog, search, telescope } from "ionicons/icons";
+import {
+	cog,
+	mail,
+	personCircleOutline,
+	search,
+	telescope,
+} from "ionicons/icons";
 import { Redirect, Route } from "react-router-dom";
 import PostsPage from "./pages/posts/PostsPage";
 
@@ -100,6 +106,16 @@ export default function App() {
 							<IonTabButton tab="posts" href="/posts">
 								<IonIcon aria-hidden="true" icon={telescope} />
 								<IonLabel>Posts</IonLabel>
+							</IonTabButton>
+
+							<IonTabButton>
+								<IonIcon aria-hidden="true" icon={mail} />
+								<IonLabel>Messages</IonLabel>
+							</IonTabButton>
+
+							<IonTabButton>
+								<IonIcon aria-hidden="true" icon={personCircleOutline} />
+								<IonLabel>Account</IonLabel>
 							</IonTabButton>
 
 							<IonTabButton tab="search" href="/search">
