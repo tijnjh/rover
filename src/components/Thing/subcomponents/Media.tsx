@@ -18,7 +18,7 @@ function Image({ post, className }: { post: Reddit.Link; className?: string }) {
 			loading="lazy"
 			src={post.data.url}
 			alt={`${post.data.subreddit_name_prefixed} - ${post.data.title}`}
-			className={`${className} w-full `}
+			className={`${className} w-full`}
 			draggable="false"
 			style={{
 				aspectRatio: `${post.data.preview.images[0].source.width}/${post.data.preview.images[0].source.height}`,
