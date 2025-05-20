@@ -58,7 +58,7 @@ export default function PostDetail({
 			<IonHeader>
 				<IonToolbar>
 					<IonButtons slot="start">
-						<IonBackButton defaultHref="/posts" text="Back" />
+						<IonBackButton text="Back" />
 					</IonButtons>
 					<IonTitle>
 						{data?.[0].data.children[0].data.num_comments} Comments
@@ -72,7 +72,7 @@ export default function PostDetail({
 				) : (
 					<>
 						<IonList className="mb-4!">
-							<Thing.T3 post={data[0].data.children[0]} />
+							<Thing.T3 post={data[0].data.children[0]} inDetail />
 						</IonList>
 
 						<IonList>

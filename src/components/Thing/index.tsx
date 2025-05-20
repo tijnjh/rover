@@ -1,5 +1,4 @@
 import { unescape as unesc } from "html-escaper";
-import { useLocation } from "react-router-dom";
 
 import type * as Reddit from "@/lib/reddit-types";
 import Media from "./subcomponents/Media";
@@ -15,7 +14,6 @@ import {
 	timeOutline,
 } from "ionicons/icons";
 import dayjs from "dayjs";
-import { useEffect, useState } from "react";
 
 function transformPermalink(url: string) {
 	const newUrl = url.split("/").slice(0, 5).join("/");
@@ -23,15 +21,7 @@ function transformPermalink(url: string) {
 }
 
 export default {
-	T3: ({ post }: { post: Reddit.Link }) => {
-		const [inDetail, setInDetail] = useState(false);
-		const location = useLocation();
-
-		useEffect(() => {
-			const regex = /^\/r\/.*\/comments\/.*$/;
-			setInDetail(regex.test(location.pathname));
-		}, [location.pathname]);
-
+	T3: ({ post, inDetail }: { post: Reddit.Link; inDetail?: boolean }) => {
 		return (
 			<IonItem
 				detail={false}

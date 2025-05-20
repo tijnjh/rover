@@ -66,7 +66,7 @@ export default function FeedView({
 		<>
 			<IonList style={{ backgroundColor: "transparent" }}>
 				{entries.map((post) => (
-					<Thing.T3 post={post} key={post.data.id} />
+					<Thing.T3 key={post.data.id} post={post} />
 				))}
 			</IonList>
 
