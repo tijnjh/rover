@@ -77,7 +77,7 @@ export default function PostDetail({
 
 						<IonList>
 							{data[1]?.data.children.map((comment: Reddit.Comment) => (
-								<Comment key={comment.id} comment={comment} />
+								<Comment key={comment.data.id} comment={comment} />
 							))}
 						</IonList>
 					</>

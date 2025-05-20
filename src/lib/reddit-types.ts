@@ -25,6 +25,7 @@ export interface Created {
 
 export interface Comment extends Thing, Votable, Created {
 	data: {
+		id: string;
 		approved_by: string | null;
 		author: string;
 		author_flair_css_class: string;
