@@ -8,4 +8,4 @@ COPY . .
 
 RUN deno run -A --node-modules-dir npm:vite build
 
-CMD ["deno", "run", "--allow-net", "--allow-read", "jsr:@std/http@1/file-server", "dist/"]
+CMD ["deno", "run", "--allow-net", "--allow-read", "jsr:@std/http@1/file-server", "dist/", "--port", "3000"]
