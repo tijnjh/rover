@@ -96,7 +96,7 @@ function CommentMeta({
 			<div className="flex items-center gap-2">
 				<div className="flex items-center">
 					<IonIcon icon={arrowUp} size="18" />
-					{!score_hidden ? formatNumber(score) : "-"}
+					{score_hidden ? "-" : formatNumber(score)}
 				</div>
 				<div className="flex items-center">
 					<IonIcon size="18" aria-hidden="true" icon={timeOutline} />
