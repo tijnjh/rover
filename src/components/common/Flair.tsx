@@ -1,4 +1,4 @@
-import { unescape as unesc } from "html-escaper";
+import { unescape } from "@std/html/entities";
 
 export default function Flair({
   nsfw,
@@ -25,7 +25,7 @@ export default function Flair({
   return (
     <>
       <div className="inline w-fit shrink overflow-hidden truncate rounded-lg bg-(--gray-6) px-1.5 py-px font-normal text-(--gray-1) text-sm">
-        {unesc(text)}
+        {unescape(text)}
       </div>
       {" "}
     </>

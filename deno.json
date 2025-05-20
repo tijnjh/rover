@@ -24,15 +24,17 @@
     "@types/react-router": "npm:@types/react-router@^5.1.20",
     "@types/react-router-dom": "npm:@types/react-router-dom@^5.3.3",
     "@vitejs/plugin-react": "npm:@vitejs/plugin-react@^4.3.4",
+    "babel-plugin-react-compiler": "npm:babel-plugin-react-compiler@^19.1.0-rc.2",
     "dayjs": "npm:dayjs@^1.11.13",
     "ionicons": "npm:ionicons@^8.0.8",
-    "react": "npm:react@^19.0.0",
+    "react": "npm:react@^19.1.0",
     "react-animate-height": "npm:react-animate-height@^3.2.3",
-    "react-dom": "npm:react-dom@^19.0.0",
+    "react-dom": "npm:react-dom@^19.1.0",
     "react-router": "npm:react-router@^5.3.4",
     "react-router-dom": "npm:react-router-dom@^7.6.0",
+    "tailwindcss": "npm:tailwindcss@^4.1.7",
     "tsuite": "npm:tsuite@^0.5.4-2",
-    "vite": "npm:vite@^6.1.1",
+    "vite": "npm:vite@^6.3.5",
     "vite-tsconfig-paths": "npm:vite-tsconfig-paths@^5.1.4"
   }
 }
