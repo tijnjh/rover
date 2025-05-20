@@ -16,8 +16,8 @@ import {
   search,
   telescope,
 } from "ionicons/icons";
-import { Redirect, Route } from "react-router-dom";
-import PostsPage from "./pages/posts/PostsPage";
+import { Redirect, Route } from "react-router";
+import PostsPage from "./pages/posts/PostsPage.tsx";
 
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";
@@ -29,14 +29,14 @@ import "@ionic/react/css/palettes/dark.system.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import dayjs from "dayjs";
-import updateLocale from "dayjs/plugin/updateLocale";
-import relativeTime from "dayjs/plugin/relativeTime";
+import updateLocale from "dayjs/plugin/updateLocale.js";
+import relativeTime from "dayjs/plugin/relativeTime.js";
 
-import PostDetailPage from "./pages/PostDetailPage";
-import PopularPage from "./pages/posts/PopularPostsPage";
-import SearchPage from "./pages/SearchPage";
-import SettingsPage from "./pages/SettingsPage";
-import SubredditPage from "./pages/SubredditPage";
+import PostDetailPage from "./pages/PostDetailPage.tsx";
+import PopularPage from "./pages/posts/PopularPostsPage.tsx";
+import SearchPage from "./pages/SearchPage.tsx";
+import SettingsPage from "./pages/SettingsPage.tsx";
+import SubredditPage from "./pages/SubredditPage.tsx";
 
 const queryClient = new QueryClient();
 
