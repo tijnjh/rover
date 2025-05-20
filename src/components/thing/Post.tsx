@@ -41,12 +41,13 @@ export default function Post({
 			<div className="my-4 grid grid-cols-1 gap-4">
 				<div className="mx-4">
 					{unesc(post.data.title)}{" "}
-					{!!post.data.link_flair_text && (
+					{post.data.link_flair_text && (
 						<Flair text={post.data.link_flair_text} />
 					)}
+					{post.data.over_18 && <Flair nsfw />}
 				</div>
 
-				{!!post.data.url && <Media post={post} />}
+				{post.data.url && <Media post={post} />}
 
 				<div className="mx-4 flex flex-col gap-2 text-(--gray-1) text-[15px]">
 					{!!post.data.selftext && (
@@ -69,7 +70,6 @@ export default function Post({
 
 						<div>
 							<IonIcon size="18" aria-hidden="true" icon={chatbubbleOutline} />
-
 							{formatNumber(post.data.num_comments)}
 						</div>
 						<div>
