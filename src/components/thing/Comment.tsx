@@ -24,6 +24,8 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
 	return (
 		<>
 			<IonItem
+				button
+				detail={false}
 				onClick={() => {
 					setIsCollapsed(!isCollapsed);
 				}}
