@@ -77,7 +77,6 @@ export default function FeedView({
 							event.target.complete();
 						})
 						.catch(() => {
-							event.detail;
 							event.target.complete();
 							present({
 								message: "Failed to load more posts.",
