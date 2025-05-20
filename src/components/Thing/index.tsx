@@ -1,4 +1,5 @@
 import { unescape as unesc } from "html-escaper";
+import { useLocation } from "react-router-dom";
 
 import type * as Reddit from "@/lib/reddit-types";
 import Media from "./subcomponents/Media";
@@ -24,11 +25,12 @@ function transformPermalink(url: string) {
 export default {
 	T3: ({ post }: { post: Reddit.Link }) => {
 		const [inDetail, setInDetail] = useState(false);
+		const location = useLocation();
 
 		useEffect(() => {
 			const regex = /^\/r\/.*\/comments\/.*$/;
 			setInDetail(regex.test(location.pathname));
-		}, []);
+		}, [location.pathname]);
 
 		return (
 			<IonItem
