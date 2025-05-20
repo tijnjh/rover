@@ -11,24 +11,26 @@ import {
 import { IonReactRouter } from "@ionic/react-router";
 import { cog, search, telescope } from "ionicons/icons";
 import { Redirect, Route } from "react-router-dom";
-import Posts from "./pages/Posts";
+import PostsPage from "./pages/posts/PostsPage";
 
 import "@ionic/react/css/core.css";
 import "@ionic/react/css/normalize.css";
 import "@ionic/react/css/structure.css";
 import "@ionic/react/css/typography.css";
 import "./App.css";
-
 import "@ionic/react/css/palettes/dark.system.css";
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import dayjs from "dayjs";
 import updateLocale from "dayjs/plugin/updateLocale";
 import relativeTime from "dayjs/plugin/relativeTime";
-import PostDetail from "./pages/PostDetail";
-import Popular from "./pages/Posts/Popular";
-import Search from "./pages/Search";
-import Settings from "./pages/Settings";
-import Subreddit from "./pages/Subreddit";
+
+import PostDetailPage from "./pages/PostDetailPage";
+import PopularPage from "./pages/posts/PopularPostsPage";
+import SearchPage from "./pages/SearchPage";
+import SettingsPage from "./pages/SettingsPage";
+import SubredditPage from "./pages/SubredditPage";
 
 const queryClient = new QueryClient();
 
@@ -65,25 +67,33 @@ export default function App() {
 						<IonRouterOutlet>
 							<Route exact path="/" render={() => <Redirect to="/posts" />} />
 
-							<Route exact path="/posts" render={() => <Posts />} />
+							<Route exact path="/posts" render={() => <PostsPage />} />
 
-							<Route exact path="/posts/popular" render={() => <Popular />} />
+							<Route
+								exact
+								path="/posts/popular"
+								render={() => <PopularPage />}
+							/>
 
 							<Route
 								exact
 								path="/r/:subreddit/comments/:id"
-								render={({ match: { params } }) => <PostDetail {...params} />}
+								render={({ match: { params } }) => (
+									<PostDetailPage {...params} />
+								)}
 							/>
 
 							<Route
 								exact
 								path="/r/:subreddit"
-								render={({ match: { params } }) => <Subreddit {...params} />}
+								render={({ match: { params } }) => (
+									<SubredditPage {...params} />
+								)}
 							/>
 
-							<Route exact path="/search" render={() => <Search />} />
+							<Route exact path="/search" render={() => <SearchPage />} />
 
-							<Route exact path="/settings" render={() => <Settings />} />
+							<Route exact path="/settings" render={() => <SettingsPage />} />
 						</IonRouterOutlet>
 
 						<IonTabBar slot="bottom">

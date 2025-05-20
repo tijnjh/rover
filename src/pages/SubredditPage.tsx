@@ -9,7 +9,7 @@ import {
 	IonToolbar,
 } from "@ionic/react";
 
-export default function Search({ subreddit }: { subreddit: string }) {
+export default function SubredditPage({ subreddit }: { subreddit: string }) {
 	return (
 		<IonPage>
 			<IonHeader>

@@ -10,7 +10,7 @@ import {
 
 import FeedView from "@/components/views/FeedView";
 
-export default function Popular() {
+export default function PopularPostsPage() {
 	return (
 		<IonPage>
 			<IonHeader>

@@ -9,7 +9,7 @@ import {
 	IonToolbar,
 } from "@ionic/react";
 
-export default function Settings() {
+export default function SettingsPage() {
 	return (
 		<IonPage>
 			<IonHeader>

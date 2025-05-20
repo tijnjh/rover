@@ -1,5 +1,5 @@
-import LoadingIndicator from "@/components/LoadingIndicator";
-import Thing from "@/components/Thing";
+import LoadingIndicator from "@/components/common/LoadingIndicator";
+import Post from "@/components/thing/Post";
 import type * as Reddit from "@/lib/reddit-types";
 import {
 	IonContent,
@@ -66,7 +66,7 @@ export default function FeedView({
 		<>
 			<IonList style={{ backgroundColor: "transparent" }}>
 				{entries.map((post) => (
-					<Thing.T3 key={post.data.id} post={post} />
+					<Post key={post.data.id} post={post} />
 				))}
 			</IonList>
 

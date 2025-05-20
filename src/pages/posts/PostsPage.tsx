@@ -11,7 +11,7 @@ import {
 } from "@ionic/react";
 import { trendingUp } from "ionicons/icons";
 
-export default function Posts() {
+export default function PostsPage() {
 	return (
 		<IonPage>
 			<IonHeader>

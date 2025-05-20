@@ -11,7 +11,7 @@ import {
 } from "@ionic/react";
 import { useState } from "react";
 
-export default function Search() {
+export default function SearchPage() {
 	const [query, setQuery] = useState<string | null>();
 
 	return (

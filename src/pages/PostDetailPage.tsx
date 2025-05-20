@@ -1,6 +1,6 @@
-import Comment from "@/components/Comment";
-import LoadingIndicator from "@/components/LoadingIndicator";
-import Thing from "@/components/Thing";
+import Comment from "@/components/thing/Comment";
+import LoadingIndicator from "@/components/common/LoadingIndicator";
+import Post from "@/components/thing/Post";
 import type * as Reddit from "@/lib/reddit-types";
 import {
 	IonBackButton,
@@ -29,7 +29,7 @@ type PostDetailResult = [
 	},
 ];
 
-export default function PostDetail({
+export default function PostDetailPage({
 	subreddit,
 	id,
 }: {
@@ -72,7 +72,7 @@ export default function PostDetail({
 				) : (
 					<>
 						<IonList className="mb-4!">
-							<Thing.T3 post={data[0].data.children[0]} inDetail />
+							<Post post={data[0].data.children[0]} inDetail />
 						</IonList>
 
 						<IonList>
