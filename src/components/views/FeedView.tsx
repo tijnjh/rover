@@ -74,13 +74,11 @@ export default function FeedView({
 				onIonInfinite={(event) => {
 					refetch()
 						.then(() => {
-							// Complete the infinite scroll event after refetch
 							event.target.complete();
 						})
 						.catch(() => {
 							event.detail;
-							// Handle potential errors during refetch
-							event.target.complete(); // Still complete the event to avoid getting stuck
+							event.target.complete();
 							present({
 								message: "Failed to load more posts.",
 								duration: 2000,
