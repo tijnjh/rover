@@ -1,4 +1,4 @@
-import { unescape as unesc } from "html-escaper";
+import { unescape } from "@std/html/entities";
 
 import type * as Reddit from "@/lib/reddit-types.ts";
 import Media from "@/components/common/Media.tsx";
@@ -40,7 +40,7 @@ export default function Post({
     >
       <div className="my-4 grid grid-cols-1 gap-4">
         <div className="mx-4">
-          {unesc(post.data.title)}{" "}
+          {unescape(post.data.title)}{" "}
           {post.data.link_flair_text && (
             <Flair text={post.data.link_flair_text} />
           )}

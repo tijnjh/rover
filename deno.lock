@@ -1,6 +1,7 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@std/html@^1.0.4": "1.0.4",
     "npm:@deno/vite-plugin@^1.0.4": "1.0.4_vite@6.3.5__@types+node@22.15.15__picomatch@4.0.2_@types+node@22.15.15",
     "npm:@ionic/react-router@^8.5.7": "8.5.7_react@19.1.0_react-dom@19.1.0__react@19.1.0_react-router@5.3.4__react@19.1.0_react-router-dom@5.3.4__react@19.1.0",
     "npm:@ionic/react@^8.5.7": "8.5.7_react@19.1.0_react-dom@19.1.0__react@19.1.0",
@@ -11,7 +12,6 @@
     "npm:@types/react@^19.0.10": "19.1.4",
     "npm:@vitejs/plugin-react@^4.3.4": "4.4.1_vite@6.3.5__@types+node@22.15.15__picomatch@4.0.2_@babel+core@7.27.1_@types+node@22.15.15",
     "npm:dayjs@^1.11.13": "1.11.13",
-    "npm:html-escaper@^3.0.3": "3.0.3",
     "npm:ionicons@^8.0.8": "8.0.8",
     "npm:react-animate-height@^3.2.3": "3.2.3_react@19.1.0_react-dom@19.1.0__react@19.1.0",
     "npm:react-dom@19": "19.1.0_react@19.1.0",
@@ -21,6 +21,11 @@
     "npm:vite-tsconfig-paths@^5.1.4": "5.1.4_vite@6.3.5__@types+node@22.15.15__picomatch@4.0.2_@types+node@22.15.15",
     "npm:vite@*": "6.3.5_@types+node@22.15.15_picomatch@4.0.2",
     "npm:vite@^6.1.1": "6.3.5_@types+node@22.15.15_picomatch@4.0.2"
+  },
+  "jsr": {
+    "@std/html@1.0.4": {
+      "integrity": "eff3497c08164e6ada49b7f81a28b5108087033823153d065e3f89467dd3d50e"
+    }
   },
   "npm": {
     "@ampproject/remapping@2.3.0": {
@@ -851,9 +856,6 @@
         "react-is"
       ]
     },
-    "html-escaper@3.0.3": {
-      "integrity": "sha512-RuMffC89BOWQoY0WKGpIhn5gX3iI54O6nRA0yC124NYVtzjmFWBIiFd8M0x+ZdX0P9R4lADg1mgP8C7PxGOWuQ=="
-    },
     "ionicons@7.4.0": {
       "integrity": "sha512-ZK94MMqgzMCPPMhmk8Ouu6goyVHFIlw/ACP6oe3FrikcI0N7CX0xcwVaEbUc0G/v3W0shI93vo+9ve/KpvcNhQ==",
       "dependencies": [
@@ -1214,6 +1216,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@std/html@^1.0.4",
       "npm:@deno/vite-plugin@^1.0.4",
       "npm:@ionic/react-router@^8.5.7",
       "npm:@ionic/react@^8.5.7",
@@ -1223,7 +1226,6 @@
       "npm:@types/react@^19.0.10",
       "npm:@vitejs/plugin-react@^4.3.4",
       "npm:dayjs@^1.11.13",
-      "npm:html-escaper@^3.0.3",
       "npm:ionicons@^8.0.8",
       "npm:react-animate-height@^3.2.3",
       "npm:react-dom@19",

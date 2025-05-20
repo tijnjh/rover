@@ -1,6 +1,6 @@
 import type * as Reddit from "@/lib/reddit-types.ts";
 import { IonIcon, IonItem } from "@ionic/react";
-import { unescape as unesc } from "html-escaper";
+import { unescape } from "@std/html/entities";
 import { useState } from "react";
 import "./Comment.css";
 import Flair from "@/components/common/Flair.tsx";
@@ -123,9 +123,9 @@ function CommentBody({
   return (
     <div>
       {isImageEmbed
-        ? <img src={unesc(body)} alt="Comment embed" className="w-36" />
+        ? <img src={unescape(body)} alt="Comment embed" className="w-36" />
         : (
-          unesc(body)
+          unescape(body)
         )}
     </div>
   );
