@@ -31,7 +31,7 @@
     "react-animate-height": "npm:react-animate-height@^3.2.3",
     "react-dom": "npm:react-dom@^19.1.0",
     "react-router": "npm:react-router@^5.3.4",
-    "react-router-dom": "npm:react-router-dom@^7.6.0",
+    "react-router-dom": "npm:react-router-dom@^5.3.4",
     "tailwindcss": "npm:tailwindcss@^4.1.7",
     "tsuite": "npm:tsuite@^0.5.4-2",
     "vite": "npm:vite@^6.3.5",
