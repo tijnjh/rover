@@ -38,7 +38,7 @@ export default function Post({
         "--inner-padding-end": 0,
       }}
     >
-      <div className="my-4 grid grid-cols-1 gap-4">
+      <div className="gap-4 grid grid-cols-1 my-4">
         <div className="mx-4">
           {unescape(post.data.title)}{" "}
           {post.data.link_flair_text && (
@@ -49,7 +49,7 @@ export default function Post({
 
         {post.data.url && <Media post={post} />}
 
-        <div className="mx-4 flex flex-col gap-2 text-(--gray-1) text-[15px]">
+        <div className="flex flex-col gap-2 mx-4 text-(--gray-1) text-[15px]">
           {!!post.data.selftext && (
             <p className={`mt-0 ${!inDetail && "line-clamp-3"}`}>
               {post.data.selftext}
@@ -62,7 +62,7 @@ export default function Post({
             <span className="font-medium">{post.data.author}</span>
           </div>
 
-          <div className="flex gap-3 font-medium *:flex *:items-center *:gap-1">
+          <div className="flex *:flex *:items-center gap-3 *:gap-1 font-medium">
             <div>
               <IonIcon size="18" aria-hidden="true" icon={arrowUp} />
               {formatNumber(post.data.score)}

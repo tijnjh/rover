@@ -40,14 +40,14 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
         }}
       >
         <div
-          className="absolute top-2 h-[calc(100%-1rem)] w-0.5 rounded-full"
+          className="top-2 absolute rounded-full w-0.5 h-[calc(100%-1rem)]"
           style={{
             backgroundColor: `var(--rainbow-depth-${comment.data.depth})`,
           }}
         />
 
         <div className="px-4 py-2">
-          <div className="flex w-full grow items-center justify-between overflow-hidden text-(--gray-1)">
+          <div className="flex justify-between items-center w-full overflow-hidden text-(--gray-1) grow">
             <CommentMeta
               author={comment.data.author}
               score={comment.data.score}
@@ -65,7 +65,7 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
       </IonItem>
       {comment.data.replies && (
         <AnimateHeight height={isCollapsed ? 0 : "auto"}>
-          {comment.data.replies.data.children.map((reply: Reddit.Comment) => (
+          {comment.data.replies.data.children.map((reply) => (
             <Comment comment={reply} key={reply.data.id} />
           ))}
         </AnimateHeight>
@@ -91,7 +91,7 @@ function CommentMeta({
   | "created"
 >) {
   return (
-    <div className="flex w-full items-center gap-2">
+    <div className="flex items-center gap-2 w-full">
       <div className="whitespace-nowrap">{author}</div>
       <div className="flex items-center gap-2">
         <div className="flex items-center">
@@ -107,11 +107,11 @@ function CommentMeta({
         )}
       </div>
       {author_flair_text && (
-        <div className="shrink grow-0 overflow-hidden">
+        <div className="overflow-hidden shrink grow-0">
           <Flair text={author_flair_text} />
         </div>
       )}
-      <div className="flex grow items-center justify-end self-end" />
+      <div className="flex justify-end items-center self-end grow" />
     </div>
   );
 }
@@ -119,7 +119,10 @@ function CommentMeta({
 function CommentBody({
   body,
   isImageEmbed,
-}: { body: string; isImageEmbed: boolean }) {
+}: {
+  body: string;
+  isImageEmbed: boolean;
+}) {
   return (
     <div>
       {isImageEmbed

@@ -10,7 +10,7 @@ export default function Flair({
   if (nsfw) {
     return (
       <>
-        <div className="inline w-fit shrink overflow-hidden truncate rounded-lg bg-(--red) px-1.5 py-px font-normal text-sm text-white">
+        <div className="inline bg-(--red) px-1.5 py-px rounded-lg w-fit overflow-hidden font-normal text-white text-sm truncate shrink">
           NSFW
         </div>
         {" "}
@@ -24,7 +24,7 @@ export default function Flair({
 
   return (
     <>
-      <div className="inline w-fit shrink overflow-hidden truncate rounded-lg bg-(--gray-6) px-1.5 py-px font-normal text-(--gray-1) text-sm">
+      <div className="inline bg-(--gray-6) px-1.5 py-px rounded-lg w-fit overflow-hidden font-normal text-(--gray-1) text-sm truncate shrink">
         {unescape(text)}
       </div>
       {" "}
