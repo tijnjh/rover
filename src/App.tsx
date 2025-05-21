@@ -37,6 +37,7 @@ import PopularPage from "./pages/posts/PopularPostsPage.tsx";
 import SearchPage from "./pages/SearchPage.tsx";
 import SettingsPage from "./pages/SettingsPage.tsx";
 import SubredditPage from "./pages/SubredditPage.tsx";
+import UserDetailPage from "./pages/UserDetailPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -93,9 +94,15 @@ export default function App() {
                 exact
                 path="/r/:subreddit"
                 render={({ match: { params } }) => (
-                  <SubredditPage
-                    {...params}
-                  />
+                  <SubredditPage {...params} />
+                )}
+              />
+
+              <Route
+                exact
+                path="/u/:user"
+                render={({ match: { params } }) => (
+                  <UserDetailPage {...params} />
                 )}
               />
 

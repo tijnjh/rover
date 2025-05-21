@@ -1,6 +1,6 @@
 import LoadingIndicator from "@/components/common/LoadingIndicator.tsx";
 import Post from "@/components/thing/Post.tsx";
-import type * as Reddit from "@/lib/reddit-types.ts";
+import * as Reddit from "@/lib/reddit-types.ts";
 import {
   IonContent,
   IonInfiniteScroll,
@@ -11,8 +11,11 @@ import {
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
 import { effetch } from "tsuite";
+import Comment from "../thing/Comment.tsx";
 
 const POST_LIMIT = 8;
+
+type Entry = Reddit.Link | Reddit.Comment;
 
 export default function FeedView({
   queryKey,
@@ -21,14 +24,20 @@ export default function FeedView({
   queryKey: string[];
   url: string;
 }) {
-  const [entries, setEntries] = useState<Reddit.Link[]>([]);
-  const [lastEntryId, setLastEntryId] = useState<string>();
+  const [entries, setEntries] = useState<Entry[]>([]);
+  const [lastEntry, setLastEntry] = useState<Entry>();
+
+  useEffect(() => {
+    console.log(lastEntry);
+  }, [lastEntry]);
 
   const { isPending, error, data, refetch } = useQuery({
     queryKey: queryKey,
     queryFn: () =>
-      effetch<Reddit.Thing & { data: { children: Reddit.Link[] } }>(
-        `${url}?limit=${POST_LIMIT}&after=t3_${lastEntryId ?? "0"}`,
+      effetch<Reddit.Result<Entry>>(
+        `${url}?limit=${POST_LIMIT}&after=${lastEntry?.kind}_${
+          lastEntry?.data?.id ?? "0"
+        }`
       ),
     placeholderData: keepPreviousData,
   });
@@ -40,9 +49,7 @@ export default function FeedView({
       setEntries((prevEntries) => [...prevEntries, ...data.data.children]);
 
       if (data.data.children.length > 0) {
-        setLastEntryId(
-          data.data.children[data.data.children.length - 1].data.id,
-        );
+        setLastEntry(data.data.children[data.data.children.length - 1]);
       }
     }
   }, [data]);
@@ -62,10 +69,14 @@ export default function FeedView({
     return <LoadingIndicator />;
   }
 
+  entries.forEach(console.log);
+
   return (
     <>
       <IonList style={{ backgroundColor: "transparent" }}>
-        {entries.map((post) => <Post key={post.data.id} post={post} />)}
+        {entries.map((thing) => (
+          <Entry thing={thing} key={thing.data.id} />
+        ))}
       </IonList>
 
       <IonInfiniteScroll
@@ -87,4 +98,15 @@ export default function FeedView({
       </IonInfiniteScroll>
     </>
   );
+}
+
+function Entry({ entry }: { entry: Entry }) {
+  switch (entry?.kind) {
+    case "t3":
+      return <Post post={thing} />;
+    case "t1":
+      return <Comment comment={thing} />;
+    default:
+      <div>item of type {entry.kind} not supported</div>;
+  }
 }
