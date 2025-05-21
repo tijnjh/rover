@@ -34,7 +34,7 @@
     "react-router": "npm:react-router@^5.3.4",
     "react-router-dom": "npm:react-router-dom@^5.3.4",
     "tailwindcss": "npm:tailwindcss@^4.1.7",
-    "tsuite": "npm:tsuite@^0.5.4-2",
+    "tsuite": "npm:tsuite@^0.5.5",
     "vite": "npm:vite@^6.3.5"
   }
 }
