@@ -1,4 +1,4 @@
-import { unescape } from "@std/html/entities";
+import { unescape } from "html-escaper";
 
 export default function Flair({
   nsfw,

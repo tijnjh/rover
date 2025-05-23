@@ -1,4 +1,4 @@
-import { unescape } from "@std/html/entities";
+import { unescape } from "html-escaper";
 
 import type * as Reddit from "@/lib/reddit-types.ts";
 import Media from "@/components/common/Media.tsx";

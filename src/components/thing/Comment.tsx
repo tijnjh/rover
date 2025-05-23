@@ -1,6 +1,6 @@
 import type * as Reddit from "@/lib/reddit-types.ts";
 import { IonIcon, IonItem } from "@ionic/react";
-import { unescape } from "@std/html/entities";
+import { unescape } from "html-escaper";
 import { useState } from "react";
 import "./Comment.css";
 import Flair from "@/components/common/Flair.tsx";
