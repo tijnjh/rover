@@ -19,7 +19,7 @@
         "react-router": "^7.6.1",
         "react-router-dom": "^7.6.1",
         "tailwindcss": "^4.1.8",
-        "tsuite": "^0.6.4",
+        "tsuite": "^0.6.5",
         "vite-tsconfig-paths": "^5.1.4",
       },
       "devDependencies": {
@@ -312,8 +312,6 @@
 
     "detect-libc": ["detect-libc@2.0.4", "", {}, "sha512-3UDv+G9CsCKO1WKMGw9fwq/SWJYbI0c5Y7LU1AXYoDdbhE2AHQ6N6Nb34sG8Fj7T5APy8qXDCKuuIHd1BR0tVA=="],
 
-    "easy-try-catch": ["easy-try-catch@0.2.0", "", {}, "sha512-ZVFFJj/q2okP+7LjYpLEZTKcmcMuDRbEQ/T7v3B8HQ4mBlIN3DDnRfQ4MT9rsaGLzdVeZd604r+bxqKr2obfag=="],
-
     "electron-to-chromium": ["electron-to-chromium@1.5.161", "", {}, "sha512-hwtetwfKNZo/UlwHIVBlKZVdy7o8bIZxxKs0Mv/ROPiQQQmDgdm5a+KvKtBsxM8ZjFzTaCeLoodZ8jiBE3o9rA=="],
 
     "enhanced-resolve": ["enhanced-resolve@5.18.1", "", { "dependencies": { "graceful-fs": "^4.2.4", "tapable": "^2.2.0" } }, "sha512-ZSW3ma5GkcQBIpwZTSRAI8N71Uuwgs93IezB7mf7R60tC8ZbJideoDNKjHn2O9KIlx6rkGTTEk1xUCK2E1Y2Yg=="],
@@ -452,7 +450,9 @@
 
     "tslib": ["tslib@2.8.1", "", {}, "sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w=="],
 
-    "tsuite": ["tsuite@0.6.4", "", { "dependencies": { "easy-try-catch": "^0.2.0" } }, "sha512-fEHzqz5g43+UREVwDNdB3UKKj35GMtlQuvWUdOFQcg3jr2Mn+e59RtJx/kMsyIbpYuTx8dAPPIPDnwnVo0jGFw=="],
+    "tsuite": ["tsuite@0.6.5", "", { "dependencies": { "typecatch": "^0.2.1" } }, "sha512-82yBtbkEDhNxBzKcsdb6OQtEODKqHSckC+s4horxOjzMy7bvWxdjVypcY3KsXHqa4a3McoOniS41gkmBHfTT3A=="],
+
+    "typecatch": ["typecatch@0.2.1", "", {}, "sha512-oPEOa4U0+8FMZ7Eh7O6F/iAqBMm53iszMLyvOsziCexUAGFAZJHlXWA/9riJ3J+XIMl54xfLk02ZFU7ucj0eKw=="],
 
     "typescript": ["typescript@5.8.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ=="],
 
