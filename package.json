@@ -17,13 +17,14 @@
     "dayjs": "^1.11.13",
     "html-escaper": "^3.0.3",
     "ionicons": "^7.4.0",
+    "ios-haptics": "^0.0.3",
     "react": "19.0.0",
     "react-animate-height": "^3.2.3",
     "react-dom": "19.0.0",
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4",
     "tailwindcss": "^4.1.8",
-    "tsuite": "^0.6.5",
+    "tsuite": "^0.5.5",
     "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {

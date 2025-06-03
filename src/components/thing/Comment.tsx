@@ -8,6 +8,7 @@ import { formatNumber } from "@/lib/utils.ts";
 import { arrowUp, lockClosed, timeOutline } from "ionicons/icons";
 import AnimateHeight from "react-animate-height";
 import dayjs from "dayjs";
+import { haptic } from "ios-haptics";
 
 const allowedImageEmbeds = ["https://i.redd.it/", "https://preview.redd.it/"];
 
@@ -29,6 +30,7 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
         detail={false}
         onClick={() => {
           setIsCollapsed(!isCollapsed);
+          haptic();
         }}
         className="relative grid grid-cols-1 text-[15px]"
         style={{

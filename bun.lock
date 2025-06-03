@@ -3,23 +3,24 @@
   "workspaces": {
     "": {
       "dependencies": {
-        "@ionic/react": "^8.5.7",
-        "@ionic/react-router": "^8.5.7",
-        "@tailwindcss/vite": "^4.1.7",
-        "@tanstack/react-query": "^5.76.1",
+        "@ionic/react": "^8.5.8",
+        "@ionic/react-router": "^8.5.8",
+        "@tailwindcss/vite": "^4.1.8",
+        "@tanstack/react-query": "^5.80.2",
         "@types/html-escaper": "^3.0.4",
         "@types/react-router": "^5.1.20",
         "@types/react-router-dom": "^5.3.3",
         "dayjs": "^1.11.13",
         "html-escaper": "^3.0.3",
         "ionicons": "^7.4.0",
+        "ios-haptics": "^0.0.3",
         "react": "19.0.0",
         "react-animate-height": "^3.2.3",
         "react-dom": "19.0.0",
         "react-router": "^5.3.4",
         "react-router-dom": "^5.3.4",
-        "tailwindcss": "^4.1.7",
-        "tsuite": "^0.5.4-2",
+        "tailwindcss": "^4.1.8",
+        "tsuite": "^0.5.5",
         "vite-tsconfig-paths": "^5.1.4",
       },
       "devDependencies": {
@@ -27,7 +28,7 @@
         "@deno/vite-plugin": "^1.0.4",
         "@types/react": "19.0.10",
         "@types/react-dom": "19.0.4",
-        "@vitejs/plugin-react": "^4.4.1",
+        "@vitejs/plugin-react": "^4.5.1",
         "babel-plugin-react-compiler": "^19.1.0-rc.2",
         "typescript": "^5.8.3",
         "vite": "~5.2.14",
@@ -347,6 +348,8 @@
     "html-escaper": ["html-escaper@3.0.3", "", {}, "sha512-RuMffC89BOWQoY0WKGpIhn5gX3iI54O6nRA0yC124NYVtzjmFWBIiFd8M0x+ZdX0P9R4lADg1mgP8C7PxGOWuQ=="],
 
     "ionicons": ["ionicons@7.4.0", "", { "dependencies": { "@stencil/core": "^4.0.3" } }, "sha512-ZK94MMqgzMCPPMhmk8Ouu6goyVHFIlw/ACP6oe3FrikcI0N7CX0xcwVaEbUc0G/v3W0shI93vo+9ve/KpvcNhQ=="],
+
+    "ios-haptics": ["ios-haptics@0.0.3", "", {}, "sha512-uxVr52nyhh7sxGGkMtM92K0ZH4TCNyhaVluN+h30BTVvYiGKNxjDZGu8reIJB5kGh0+KEmY//9VL3V0x9KKn7w=="],
 
     "isarray": ["isarray@0.0.1", "", {}, "sha512-D2S+3GLxWH+uhrNEcoh/fnmYeP8E8/zHl644d/jdA0g2uyXvy3sb0qxotE+ne0LtccHknQzWwZEzhak7oJ0COQ=="],
 

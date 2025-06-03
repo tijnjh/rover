@@ -9,6 +9,7 @@ import {
   useIonToast,
 } from "@ionic/react";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import { haptic } from "ios-haptics";
 import { useEffect, useState } from "react";
 import { effetch } from "tsuite";
 
@@ -48,6 +49,7 @@ export default function FeedView({
   }, [data]);
 
   if (error) {
+    haptic.error();
     present({
       message: `Failed to load post: ${error}`,
     });

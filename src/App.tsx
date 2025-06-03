@@ -37,6 +37,7 @@ import PopularPage from "./pages/posts/PopularPostsPage.tsx";
 import SearchPage from "./pages/SearchPage.tsx";
 import SettingsPage from "./pages/SettingsPage.tsx";
 import SubredditPage from "./pages/SubredditPage.tsx";
+import { haptic } from "ios-haptics";
 
 const queryClient = new QueryClient();
 
@@ -105,28 +106,32 @@ export default function App() {
             </IonRouterOutlet>
 
             <IonTabBar slot="bottom">
-              <IonTabButton tab="posts" href="/posts">
+              <IonTabButton tab="posts" href="/posts" onClick={haptic}>
                 <IonIcon aria-hidden="true" icon={telescope} />
                 <IonLabel>Posts</IonLabel>
               </IonTabButton>
 
               <IonTabButton>
-                <IonIcon aria-hidden="true" icon={mail} />
+                <IonIcon aria-hidden="true" icon={mail} onClick={haptic} />
                 <IonLabel>Messages</IonLabel>
               </IonTabButton>
 
               <IonTabButton>
-                <IonIcon aria-hidden="true" icon={personCircleOutline} />
+                <IonIcon
+                  aria-hidden="true"
+                  icon={personCircleOutline}
+                  onClick={haptic}
+                />
                 <IonLabel>Account</IonLabel>
               </IonTabButton>
 
               <IonTabButton tab="search" href="/search">
-                <IonIcon aria-hidden="true" icon={search} />
+                <IonIcon aria-hidden="true" icon={search} onClick={haptic} />
                 <IonLabel>Search</IonLabel>
               </IonTabButton>
 
               <IonTabButton tab="settings" href="/settings">
-                <IonIcon aria-hidden="true" icon={cog} />
+                <IonIcon aria-hidden="true" icon={cog} onClick={haptic} />
                 <IonLabel>Settings</IonLabel>
               </IonTabButton>
             </IonTabBar>

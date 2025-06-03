@@ -15,6 +15,7 @@ import {
 } from "@ionic/react";
 import { useQuery } from "@tanstack/react-query";
 import { effetch } from "tsuite";
+import { haptic } from "ios-haptics";
 
 type PostDetailResult = [
   {
@@ -47,6 +48,7 @@ export default function PostDetailPage({
   });
 
   if (error) {
+    haptic.error();
     present({
       message: `Failed to load post: ${error}`,
     });
