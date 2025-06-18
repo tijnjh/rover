@@ -37,6 +37,9 @@ import PopularPage from "./pages/posts/PopularPostsPage.tsx";
 import SearchPage from "./pages/SearchPage.tsx";
 import SettingsPage from "./pages/SettingsPage.tsx";
 import SubredditPage from "./pages/SubredditPage.tsx";
+import MessagesPage from "./pages/MessagesPage.tsx";
+import AccountPage from "./pages/AccountPage.tsx";
+
 import { haptic } from "ios-haptics";
 
 const queryClient = new QueryClient();
@@ -74,12 +77,20 @@ export default function App() {
             <IonRouterOutlet>
               <Route exact path="/" render={() => <Redirect to="/posts" />} />
 
-              <Route exact path="/posts" render={() => <PostsPage />} />
+              <Route exact path="/posts" component={PostsPage} />
+
+              <Route exact path="/messages" component={MessagesPage} />
+
+              <Route
+                exact
+                path="/account"
+                component={AccountPage}
+              />
 
               <Route
                 exact
                 path="/posts/popular"
-                render={() => <PopularPage />}
+                component={PopularPage}
               />
 
               <Route
@@ -100,9 +111,9 @@ export default function App() {
                 )}
               />
 
-              <Route exact path="/search" render={() => <SearchPage />} />
+              <Route exact path="/search" component={SearchPage} />
 
-              <Route exact path="/settings" render={() => <SettingsPage />} />
+              <Route exact path="/settings" component={SettingsPage} />
             </IonRouterOutlet>
 
             <IonTabBar slot="bottom">
@@ -111,12 +122,12 @@ export default function App() {
                 <IonLabel>Posts</IonLabel>
               </IonTabButton>
 
-              <IonTabButton>
+              <IonTabButton tab="messages" href="/messages">
                 <IonIcon aria-hidden="true" icon={mail} onClick={haptic} />
                 <IonLabel>Messages</IonLabel>
               </IonTabButton>
 
-              <IonTabButton>
+              <IonTabButton tab="account" href="/account">
                 <IonIcon
                   aria-hidden="true"
                   icon={personCircleOutline}
