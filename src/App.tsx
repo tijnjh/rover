@@ -117,13 +117,13 @@ export default function App() {
             </IonRouterOutlet>
 
             <IonTabBar slot="bottom">
-              <IonTabButton tab="posts" href="/posts" onClick={haptic}>
+              <IonTabButton tab="posts" href="/posts">
                 <IonIcon aria-hidden="true" icon={telescope} />
                 <IonLabel>Posts</IonLabel>
               </IonTabButton>
 
               <IonTabButton tab="messages" href="/messages">
-                <IonIcon aria-hidden="true" icon={mail} onClick={haptic} />
+                <IonIcon aria-hidden="true" icon={mail} />
                 <IonLabel>Messages</IonLabel>
               </IonTabButton>
 
@@ -131,18 +131,17 @@ export default function App() {
                 <IonIcon
                   aria-hidden="true"
                   icon={personCircleOutline}
-                  onClick={haptic}
                 />
                 <IonLabel>Account</IonLabel>
               </IonTabButton>
 
               <IonTabButton tab="search" href="/search">
-                <IonIcon aria-hidden="true" icon={search} onClick={haptic} />
+                <IonIcon aria-hidden="true" icon={search} />
                 <IonLabel>Search</IonLabel>
               </IonTabButton>
 
               <IonTabButton tab="settings" href="/settings">
-                <IonIcon aria-hidden="true" icon={cog} onClick={haptic} />
+                <IonIcon aria-hidden="true" icon={cog} />
                 <IonLabel>Settings</IonLabel>
               </IonTabButton>
             </IonTabBar>
