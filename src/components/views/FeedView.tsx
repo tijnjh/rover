@@ -15,13 +15,7 @@ import Post from '@/components/thing/Post.tsx'
 
 const POST_LIMIT = 8
 
-export default function FeedView({
-  queryKey,
-  url,
-}: {
-  queryKey: string[]
-  url: string
-}) {
+export default function FeedView({ queryKey, url }: { queryKey: string[], url: string }) {
   const [entries, setEntries] = useState<Reddit.Link[]>([])
   const [lastEntryId, setLastEntryId] = useState<string>()
 

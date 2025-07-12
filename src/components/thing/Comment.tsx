@@ -76,22 +76,7 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
   )
 }
 
-function CommentMeta({
-  author,
-  score,
-  score_hidden,
-  locked,
-  author_flair_text,
-  created,
-}: Pick<
-  Reddit.Comment['data'],
-  | 'author'
-  | 'score'
-  | 'score_hidden'
-  | 'locked'
-  | 'author_flair_text'
-  | 'created'
->) {
+function CommentMeta({ author, score, score_hidden, locked, author_flair_text, created }: Pick<Reddit.Comment['data'], 'author' | 'score' | 'score_hidden' | 'locked' | 'author_flair_text' | 'created'>) {
   return (
     <div className="flex items-center gap-2 w-full">
       <div className="whitespace-nowrap">{author}</div>
@@ -118,20 +103,10 @@ function CommentMeta({
   )
 }
 
-function CommentBody({
-  body,
-  isImageEmbed,
-}: {
-  body: string
-  isImageEmbed: boolean
-}) {
+function CommentBody({ body, isImageEmbed }: { body: string, isImageEmbed: boolean }) {
   return (
     <div>
-      {isImageEmbed
-        ? <img src={unescape(body)} alt="Comment embed" className="w-36" />
-        : (
-            unescape(body)
-          )}
+      {isImageEmbed ? <img src={unescape(body)} alt="Comment embed" className="w-36" /> : unescape(body)}
     </div>
   )
 }

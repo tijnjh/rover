@@ -19,16 +19,11 @@ function transformPermalink(url: string) {
   return newUrl
 }
 
-export default function Post({
-  post,
-  inDetail,
-}: { post: Reddit.Link, inDetail?: boolean }) {
+export default function Post({ post, inDetail }: { post: Reddit.Link, inDetail?: boolean }) {
   return (
     <IonItem
       detail={false}
-      routerLink={!inDetail
-        ? transformPermalink(post.data.permalink)
-        : undefined}
+      routerLink={!inDetail ? transformPermalink(post.data.permalink) : undefined}
       lines="none"
       className="mb-2"
       style={{
@@ -42,9 +37,7 @@ export default function Post({
         <div className="mx-4">
           {unescape(post.data.title)}
           {' '}
-          {post.data.link_flair_text && (
-            <Flair text={post.data.link_flair_text} />
-          )}
+          {post.data.link_flair_text && <Flair text={post.data.link_flair_text} />}
           {post.data.over_18 && <Flair nsfw />}
         </div>
 

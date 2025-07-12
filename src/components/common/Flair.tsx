@@ -1,12 +1,6 @@
 import { unescape } from 'html-escaper'
 
-export default function Flair({
-  nsfw,
-  text,
-}: {
-  nsfw?: boolean
-  text?: string
-}) {
+export default function Flair({ nsfw, text }: { nsfw?: boolean, text?: string }) {
   if (nsfw) {
     return (
       <>

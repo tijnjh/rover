@@ -1,14 +1,8 @@
 import type * as Reddit from '@/lib/reddit-types.ts'
 
-export default function Media({
-  post,
-  className,
-}: {
-  post: Reddit.Link
-  className?: string
-}) {
-  if (post.data.post_hint === 'image') {
-    return Image({ post, className })
+export default function Media({ post, className }: { post: Reddit.Link, className?: string }) {
+  switch (post.data.post_hint) {
+    case 'image': return Image({ post, className })
   }
 }
 
