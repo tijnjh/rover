@@ -7,66 +7,65 @@ import {
   IonTabButton,
   IonTabs,
   setupIonicReact,
-} from "@ionic/react";
-import { IonReactRouter } from "@ionic/react-router";
+} from '@ionic/react'
+import { IonReactRouter } from '@ionic/react-router'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime.js'
+
+import updateLocale from 'dayjs/plugin/updateLocale.js'
 import {
   cog,
   mail,
   personCircleOutline,
   search,
   telescope,
-} from "ionicons/icons";
-import { Redirect, Route } from "react-router";
-import PostsPage from "./pages/posts/PostsPage.tsx";
+} from 'ionicons/icons'
+import { Redirect, Route } from 'react-router'
+import AccountPage from './pages/AccountPage.tsx'
+import MessagesPage from './pages/MessagesPage.tsx'
 
-import "@ionic/react/css/core.css";
-import "@ionic/react/css/normalize.css";
-import "@ionic/react/css/structure.css";
-import "@ionic/react/css/typography.css";
-import "./App.css";
-import "@ionic/react/css/palettes/dark.system.css";
+import PostDetailPage from './pages/PostDetailPage.tsx'
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import PopularPage from './pages/posts/PopularPostsPage.tsx'
+import PostsPage from './pages/posts/PostsPage.tsx'
+import SearchPage from './pages/SearchPage.tsx'
 
-import dayjs from "dayjs";
-import updateLocale from "dayjs/plugin/updateLocale.js";
-import relativeTime from "dayjs/plugin/relativeTime.js";
+import SettingsPage from './pages/SettingsPage.tsx'
+import SubredditPage from './pages/SubredditPage.tsx'
+import '@ionic/react/css/core.css'
+import '@ionic/react/css/normalize.css'
+import '@ionic/react/css/structure.css'
+import '@ionic/react/css/typography.css'
+import './App.css'
 
-import PostDetailPage from "./pages/PostDetailPage.tsx";
-import PopularPage from "./pages/posts/PopularPostsPage.tsx";
-import SearchPage from "./pages/SearchPage.tsx";
-import SettingsPage from "./pages/SettingsPage.tsx";
-import SubredditPage from "./pages/SubredditPage.tsx";
-import MessagesPage from "./pages/MessagesPage.tsx";
-import AccountPage from "./pages/AccountPage.tsx";
+import '@ionic/react/css/palettes/dark.system.css'
 
-import { haptic } from "ios-haptics";
+const queryClient = new QueryClient()
 
-const queryClient = new QueryClient();
+setupIonicReact()
 
-setupIonicReact();
+dayjs.extend(updateLocale)
+dayjs.extend(relativeTime)
 
-dayjs.extend(updateLocale);
-dayjs.extend(relativeTime);
-
-dayjs.updateLocale("en", {
+dayjs.updateLocale('en', {
   relativeTime: {
-    future: "in %s",
-    past: "%s",
-    s: "now",
-    ss: "%ss",
-    m: "1m",
-    mm: "%dm",
-    h: "1h",
-    hh: "%dh",
-    d: "1d",
-    dd: "%dd",
-    M: "1mo",
-    MM: "%dmo",
-    y: "1y",
-    yy: "%dy",
+    future: 'in %s',
+    past: '%s',
+    s: 'now',
+    ss: '%ss',
+    m: '1m',
+    mm: '%dm',
+    h: '1h',
+    hh: '%dh',
+    d: '1d',
+    dd: '%dd',
+    M: '1mo',
+    MM: '%dmo',
+    y: '1y',
+    yy: '%dy',
   },
-});
+})
 
 export default function App() {
   return (
@@ -149,5 +148,5 @@ export default function App() {
         </IonReactRouter>
       </IonApp>
     </QueryClientProvider>
-  );
+  )
 }

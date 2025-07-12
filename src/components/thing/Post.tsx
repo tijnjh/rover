@@ -1,28 +1,28 @@
-import { unescape } from "html-escaper";
+import type * as Reddit from '@/lib/reddit-types.ts'
 
-import type * as Reddit from "@/lib/reddit-types.ts";
-import Media from "@/components/common/Media.tsx";
-import Flair from "@/components/common/Flair.tsx";
-import { IonIcon, IonItem } from "@ionic/react";
-
-import { formatNumber } from "@/lib/utils.ts";
+import { IonIcon, IonItem } from '@ionic/react'
+import dayjs from 'dayjs'
+import { unescape } from 'html-escaper'
 import {
   arrowUp,
   chatbubbleOutline,
   happyOutline,
   timeOutline,
-} from "ionicons/icons";
-import dayjs from "dayjs";
+} from 'ionicons/icons'
+
+import Flair from '@/components/common/Flair.tsx'
+import Media from '@/components/common/Media.tsx'
+import { formatNumber } from '@/lib/utils.ts'
 
 function transformPermalink(url: string) {
-  const newUrl = url.split("/").slice(0, 5).join("/");
-  return newUrl;
+  const newUrl = url.split('/').slice(0, 5).join('/')
+  return newUrl
 }
 
 export default function Post({
   post,
   inDetail,
-}: { post: Reddit.Link; inDetail?: boolean }) {
+}: { post: Reddit.Link, inDetail?: boolean }) {
   return (
     <IonItem
       detail={false}
@@ -32,15 +32,16 @@ export default function Post({
       lines="none"
       className="mb-2"
       style={{
-        "--padding-start": 0,
-        "--padding-end": 0,
-        "--inner-padding-start": 0,
-        "--inner-padding-end": 0,
+        '--padding-start': 0,
+        '--padding-end': 0,
+        '--inner-padding-start': 0,
+        '--inner-padding-end': 0,
       }}
     >
       <div className="gap-4 grid grid-cols-1 my-4">
         <div className="mx-4">
-          {unescape(post.data.title)}{" "}
+          {unescape(post.data.title)}
+          {' '}
           {post.data.link_flair_text && (
             <Flair text={post.data.link_flair_text} />
           )}
@@ -51,14 +52,14 @@ export default function Post({
 
         <div className="flex flex-col gap-2 mx-4 text-(--gray-1) text-[15px]">
           {!!post.data.selftext && (
-            <p className={`mt-0 ${!inDetail && "line-clamp-3"}`}>
+            <p className={`mt-0 ${!inDetail && 'line-clamp-3'}`}>
               {post.data.selftext}
             </p>
           )}
 
           <div>
             <span className="font-medium">{post.data.subreddit}</span>
-            {" by "}
+            {' by '}
             <span className="font-medium">{post.data.author}</span>
           </div>
 
@@ -74,7 +75,8 @@ export default function Post({
             </div>
             <div>
               <IonIcon size="18" aria-hidden="true" icon={happyOutline} />
-              {post.data.upvote_ratio * 100}%
+              {post.data.upvote_ratio * 100}
+              %
             </div>
 
             <div>
@@ -85,5 +87,5 @@ export default function Post({
         </div>
       </div>
     </IonItem>
-  );
+  )
 }

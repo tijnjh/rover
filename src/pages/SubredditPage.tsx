@@ -1,4 +1,3 @@
-import FeedView from "@/components/views/FeedView.tsx";
 import {
   IonBackButton,
   IonButtons,
@@ -7,7 +6,8 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-} from "@ionic/react";
+} from '@ionic/react'
+import FeedView from '@/components/views/FeedView.tsx'
 
 export default function SubredditPage({ subreddit }: { subreddit: string }) {
   return (
@@ -17,7 +17,10 @@ export default function SubredditPage({ subreddit }: { subreddit: string }) {
           <IonButtons slot="start">
             <IonBackButton text="Back" />
           </IonButtons>
-          <IonTitle>r/{subreddit}</IonTitle>
+          <IonTitle>
+            r/
+            {subreddit}
+          </IonTitle>
         </IonToolbar>
       </IonHeader>
 
@@ -28,5 +31,5 @@ export default function SubredditPage({ subreddit }: { subreddit: string }) {
         />
       </IonContent>
     </IonPage>
-  );
+  )
 }

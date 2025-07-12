@@ -8,11 +8,11 @@ import {
   IonSearchbar,
   IonTitle,
   IonToolbar,
-} from "@ionic/react";
-import { useState } from "react";
+} from '@ionic/react'
+import { useState } from 'react'
 
 export default function SearchPage() {
-  const [query, setQuery] = useState<string | null>();
+  const [query, setQuery] = useState<string | null>()
 
   return (
     <IonPage>
@@ -24,7 +24,7 @@ export default function SearchPage() {
           <IonSearchbar
             showCancelButton="focus"
             onIonInput={(e) => {
-              setQuery(e.target.value);
+              setQuery(e.target.value)
             }}
             value={query}
           />
@@ -33,13 +33,16 @@ export default function SearchPage() {
 
       <IonContent color="light">
         <IonList inset>
-          {!query?.includes(" ") && query && (
+          {!query?.includes(' ') && query && (
             <IonItem routerLink={`/r/${query}`}>
-              <IonLabel>Go to r/{query}</IonLabel>
+              <IonLabel>
+                Go to r/
+                {query}
+              </IonLabel>
             </IonItem>
           )}
         </IonList>
       </IonContent>
     </IonPage>
-  );
+  )
 }

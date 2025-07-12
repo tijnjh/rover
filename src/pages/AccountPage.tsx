@@ -4,7 +4,7 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-} from "@ionic/react";
+} from '@ionic/react'
 
 export default function AccountPage() {
   return (
@@ -21,5 +21,5 @@ export default function AccountPage() {
         </div>
       </IonContent>
     </IonPage>
-  );
+  )
 }

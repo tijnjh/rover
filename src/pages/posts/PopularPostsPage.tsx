@@ -6,9 +6,9 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-} from "@ionic/react";
+} from '@ionic/react'
 
-import FeedView from "@/components/views/FeedView.tsx";
+import FeedView from '@/components/views/FeedView.tsx'
 
 export default function PopularPostsPage() {
   return (
@@ -25,9 +25,9 @@ export default function PopularPostsPage() {
       <IonContent color="light">
         <FeedView
           url="https://www.reddit.com/hot.json"
-          queryKey={["feed-hot"]}
+          queryKey={['feed-hot']}
         />
       </IonContent>
     </IonPage>
-  );
+  )
 }

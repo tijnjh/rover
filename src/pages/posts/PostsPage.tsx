@@ -8,8 +8,8 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-} from "@ionic/react";
-import { trendingUp } from "ionicons/icons";
+} from '@ionic/react'
+import { trendingUp } from 'ionicons/icons'
 
 export default function PostsPage() {
   return (
@@ -37,5 +37,5 @@ export default function PostsPage() {
         </IonList>
       </IonContent>
     </IonPage>
-  );
+  )
 }

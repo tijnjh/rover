@@ -7,7 +7,7 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-} from "@ionic/react";
+} from '@ionic/react'
 
 export default function SettingsPage() {
   return (
@@ -26,5 +26,5 @@ export default function SettingsPage() {
         </IonList>
       </IonContent>
     </IonPage>
-  );
+  )
 }

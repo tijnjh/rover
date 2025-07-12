@@ -1,27 +1,27 @@
-import type * as Reddit from "@/lib/reddit-types.ts";
-import { IonIcon, IonItem } from "@ionic/react";
-import { unescape } from "html-escaper";
-import { useState } from "react";
-import "./Comment.css";
-import Flair from "@/components/common/Flair.tsx";
-import { formatNumber } from "@/lib/utils.ts";
-import { arrowUp, lockClosed, timeOutline } from "ionicons/icons";
-import AnimateHeight from "react-animate-height";
-import dayjs from "dayjs";
-import { haptic } from "ios-haptics";
+import type * as Reddit from '@/lib/reddit-types.ts'
+import { IonIcon, IonItem } from '@ionic/react'
+import dayjs from 'dayjs'
+import { unescape } from 'html-escaper'
+import { arrowUp, lockClosed, timeOutline } from 'ionicons/icons'
+import { haptic } from 'ios-haptics'
+import { useState } from 'react'
+import AnimateHeight from 'react-animate-height'
+import Flair from '@/components/common/Flair.tsx'
+import { formatNumber } from '@/lib/utils.ts'
+import './Comment.css'
 
-const allowedImageEmbeds = ["https://i.redd.it/", "https://preview.redd.it/"];
+const allowedImageEmbeds = ['https://i.redd.it/', 'https://preview.redd.it/']
 
 export default function Comment({ comment }: { comment: Reddit.Comment }) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false)
 
   if (!comment.data.body) {
-    return;
+    return
   }
 
-  const isImageEmbed = allowedImageEmbeds.some((prefix) =>
-    comment.data.body.startsWith(prefix)
-  );
+  const isImageEmbed = allowedImageEmbeds.some(prefix =>
+    comment.data.body.startsWith(prefix),
+  )
 
   return (
     <>
@@ -29,16 +29,16 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
         button
         detail={false}
         onClick={() => {
-          setIsCollapsed(!isCollapsed);
-          haptic();
+          setIsCollapsed(!isCollapsed)
+          haptic()
         }}
         className="relative grid grid-cols-1 text-[15px]"
         style={{
-          paddingInlineStart: `${comment.data.depth * 0.75}rem`,
-          "--padding-start": 0,
-          "--padding-end": 0,
-          "--inner-padding-start": 0,
-          "--inner-padding-end": 0,
+          'paddingInlineStart': `${comment.data.depth * 0.75}rem`,
+          '--padding-start': 0,
+          '--padding-end': 0,
+          '--inner-padding-start': 0,
+          '--inner-padding-end': 0,
         }}
       >
         <div
@@ -60,20 +60,20 @@ export default function Comment({ comment }: { comment: Reddit.Comment }) {
             />
           </div>
 
-          <AnimateHeight height={isCollapsed ? 0 : "auto"}>
+          <AnimateHeight height={isCollapsed ? 0 : 'auto'}>
             <CommentBody body={comment.data.body} isImageEmbed={isImageEmbed} />
           </AnimateHeight>
         </div>
       </IonItem>
       {comment.data.replies && (
-        <AnimateHeight height={isCollapsed ? 0 : "auto"}>
-          {comment.data.replies.data.children.map((reply) => (
+        <AnimateHeight height={isCollapsed ? 0 : 'auto'}>
+          {comment.data.replies.data.children.map(reply => (
             <Comment comment={reply} key={reply.data.id} />
           ))}
         </AnimateHeight>
       )}
     </>
-  );
+  )
 }
 
 function CommentMeta({
@@ -84,13 +84,13 @@ function CommentMeta({
   author_flair_text,
   created,
 }: Pick<
-  Reddit.Comment["data"],
-  | "author"
-  | "score"
-  | "score_hidden"
-  | "locked"
-  | "author_flair_text"
-  | "created"
+  Reddit.Comment['data'],
+  | 'author'
+  | 'score'
+  | 'score_hidden'
+  | 'locked'
+  | 'author_flair_text'
+  | 'created'
 >) {
   return (
     <div className="flex items-center gap-2 w-full">
@@ -98,7 +98,7 @@ function CommentMeta({
       <div className="flex items-center gap-2">
         <div className="flex items-center">
           <IonIcon icon={arrowUp} size="18" />
-          {score_hidden ? "-" : formatNumber(score)}
+          {score_hidden ? '-' : formatNumber(score)}
         </div>
         <div className="flex items-center">
           <IonIcon size="18" aria-hidden="true" icon={timeOutline} />
@@ -115,23 +115,23 @@ function CommentMeta({
       )}
       <div className="flex justify-end items-center self-end grow" />
     </div>
-  );
+  )
 }
 
 function CommentBody({
   body,
   isImageEmbed,
 }: {
-  body: string;
-  isImageEmbed: boolean;
+  body: string
+  isImageEmbed: boolean
 }) {
   return (
     <div>
       {isImageEmbed
         ? <img src={unescape(body)} alt="Comment embed" className="w-36" />
         : (
-          unescape(body)
-        )}
+            unescape(body)
+          )}
     </div>
-  );
+  )
 }

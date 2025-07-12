@@ -4,7 +4,7 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-} from "@ionic/react";
+} from '@ionic/react'
 
 export default function MessagesPage() {
   return (
@@ -21,5 +21,5 @@ export default function MessagesPage() {
         </div>
       </IonContent>
     </IonPage>
-  );
+  )
 }

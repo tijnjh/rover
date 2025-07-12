@@ -1,18 +1,18 @@
-import type * as Reddit from "@/lib/reddit-types.ts";
+import type * as Reddit from '@/lib/reddit-types.ts'
 
 export default function Media({
   post,
   className,
 }: {
-  post: Reddit.Link;
-  className?: string;
+  post: Reddit.Link
+  className?: string
 }) {
-  if (post.data.post_hint === "image") {
-    return Image({ post, className });
+  if (post.data.post_hint === 'image') {
+    return Image({ post, className })
   }
 }
 
-function Image({ post, className }: { post: Reddit.Link; className?: string }) {
+function Image({ post, className }: { post: Reddit.Link, className?: string }) {
   return (
     <img
       loading="lazy"
@@ -28,5 +28,5 @@ function Image({ post, className }: { post: Reddit.Link; className?: string }) {
         `,
       }}
     />
-  );
+  )
 }
