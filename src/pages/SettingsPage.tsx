@@ -4,6 +4,8 @@ import { useAuth } from '@/lib/auth-context'
 export default function SettingsPage() {
   const { clientId, setClientId } = useAuth()
 
+  const url = URL.parse(location.href)
+
   return (
     <IonPage>
       <IonHeader>
@@ -53,9 +55,7 @@ export default function SettingsPage() {
                   redirect uri:
                   {' '}
                   <strong>
-                    http://
-                    {URL.parse(location.href)?.host}
-                    /account
+                    {`${url?.protocol}//${url?.host}/account`}
                   </strong>
                 </li>
               </ul>
