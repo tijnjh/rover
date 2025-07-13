@@ -42,7 +42,6 @@ function Video({ post, className }: { post: Reddit.Link, className?: string }) {
   const video = useRef<HTMLVideoElement>(null)
   const audio = useRef<HTMLVideoElement>(null)
 
-  const [currentTime, setCurrentTime] = useState<number>(0)
   const [hasAudio, setHasAudio] = useState(true)
   const [isMuted, setIsMuted] = useState(true)
 
@@ -66,13 +65,6 @@ function Video({ post, className }: { post: Reddit.Link, className?: string }) {
     }
   }, [isPaused])
 
-  useEffect(() => {
-    if (video.current && audio.current) {
-      video.current.currentTime = currentTime
-      audio.current.currentTime = currentTime
-    }
-  }, [currentTime])
-
   return (
     <div className={cn('relative block isolate bg-[var(--gray-6)]', className)} ref={ref}>
       {hasAudio && (
@@ -82,7 +74,6 @@ function Video({ post, className }: { post: Reddit.Link, className?: string }) {
             e.stopPropagation()
             e.preventDefault()
             setIsMuted(prev => !prev)
-            setCurrentTime(video.current?.currentTime ?? 0)
           }}
           className="absolute z-[999] text-white flex top-auto items-center justify-center p-2 rounded-md size-10 bg-black/80 bottom-2 right-2"
         >
@@ -96,13 +87,10 @@ function Video({ post, className }: { post: Reddit.Link, className?: string }) {
         ref={video}
         onPause={() => {
           setIsPaused(true)
-          setCurrentTime(video.current?.currentTime ?? 0)
         }}
         onPlay={() => {
           setIsPaused(false)
-          setCurrentTime(video.current?.currentTime ?? 0)
         }}
-        onSeeked={() => setCurrentTime(video.current?.currentTime ?? 0)}
         playsInline
         style={{ aspectRatio: `${post.data.preview.images[0].source.width}/${post.data.preview.images[0].source.height}` }}
         className="max-h-full w-full   mx-auto"

@@ -6,6 +6,7 @@ import { effetch } from 'tsuite'
 import LoadingIndicator from '@/components/common/LoadingIndicator'
 import Comment from '@/components/features/comment/Comment'
 import Post from '@/components/features/post/Post'
+import { presentError } from '@/lib/utils'
 
 type PostDetailResult = [
   {
@@ -27,8 +28,6 @@ export default function PostDetailPage({
   subreddit: string
   id: string
 }) {
-  const [present] = useIonToast()
-
   const { data, error, isPending } = useQuery({
     queryKey: [`detail-${id}`],
     queryFn: () =>
@@ -39,9 +38,7 @@ export default function PostDetailPage({
 
   if (error) {
     haptic.error()
-    present({
-      message: `Failed to load post: ${error}`,
-    })
+    presentError('Failed to load post')
     return
   }
 

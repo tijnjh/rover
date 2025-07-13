@@ -1,11 +1,11 @@
 import type * as Reddit from '@/lib/reddit-types.ts'
 import { IonContent, IonInfiniteScroll, IonInfiniteScrollContent, IonList, useIonToast } from '@ionic/react'
 import { keepPreviousData, useQuery } from '@tanstack/react-query'
-import { haptic } from 'ios-haptics'
 import { useEffect, useState } from 'react'
 import { effetch } from 'tsuite'
 import LoadingIndicator from '@/components/common/LoadingIndicator'
 import Post from '@/components/features/post/Post'
+import { presentError } from '@/lib/utils'
 
 const POST_LIMIT = 8
 
@@ -37,10 +37,7 @@ export default function FeedView({ queryKey, url }: { queryKey: string[], url: s
   }, [data])
 
   if (error) {
-    haptic.error()
-    present({
-      message: `Failed to load post: ${error}`,
-    })
+    presentError('Error loading posts')
     return (
       <IonContent>
         <p className="mx-auto w-fit">Error loading posts.</p>
