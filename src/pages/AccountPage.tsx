@@ -20,7 +20,7 @@ function getAuthUrl() {
 }
 
 export default function AccountPage() {
-  const { accessToken, setAccessToken, subreddits, setSubreddits, error, setError, isLoading, setIsLoading, logout } = useAuth()
+  const { accessToken, setAccessToken, isLoggedIn, subreddits, setSubreddits, clientId, setError, isLoading, setIsLoading, logout } = useAuth()
 
   const fetchSubreddits = useCallback(async (token: string) => {
     try {
@@ -138,24 +138,23 @@ export default function AccountPage() {
       <IonContent color="light">
         <div className="p-4 grid place-items-center h-full">
           <div>
-            {isLoading && (
-              <div>
-                Loading...
-                {subreddits.length}
-              </div>
-            )}
+            {isLoading && <div>Loading...</div>}
 
-            {!isLoading && !accessToken
+            {!isLoggedIn
               ? (
                   <>
                     <p className="text-(--ion-color-medium) text-center">
                       Sign in to access your Reddit account, vote on posts, save posts, comment and much more!
                     </p>
-                    <IonButton expand="block" onClick={handleLoginClick}>
+                    <IonButton disabled={!!clientId} expand="block" onClick={handleLoginClick}>
                       Sign In with Reddit
                     </IonButton>
+                    {!!clientId && (
+                      <p className="text-(--ion-color-medium) text-center">
+                        Before you can sign in, you need to set a client id in settings.
+                      </p>
+                    )}
                   </>
-
                 )
               : !isLoading && (
                   <>
@@ -176,7 +175,6 @@ export default function AccountPage() {
                     </IonButton>
                   </>
                 )}
-            {error && <div style={{ color: 'red' }}>{error}</div>}
           </div>
         </div>
       </IonContent>
