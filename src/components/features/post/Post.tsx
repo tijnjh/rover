@@ -1,15 +1,11 @@
 import type * as Reddit from '@/lib/reddit-types.ts'
 
 import { IonIcon, IonItem } from '@ionic/react'
+import { cn } from 'cnfn'
 import dayjs from 'dayjs'
 import { unescape } from 'html-escaper'
-import {
-  arrowUp,
-  chatbubbleOutline,
-  happyOutline,
-  timeOutline,
-} from 'ionicons/icons'
 
+import { arrowUp, chatbubbleOutline, happyOutline, timeOutline } from 'ionicons/icons'
 import Flair from '@/components/features/flair/Flair'
 import Media from '@/components/features/media/Media'
 import { formatNumber } from '@/lib/utils.ts'
@@ -41,7 +37,12 @@ export default function Post({ post, inDetail }: { post: Reddit.Link, inDetail?:
           {post.data.over_18 && <Flair nsfw />}
         </div>
 
-        {post.data.url && <Media post={post} />}
+        {post.data.url && (
+          <Media
+            post={post}
+            className={cn('w-full max-h-96 bg-(--gray-7)', inDetail ? 'max-h-[20rem]' : 'max-h-[38rem]')}
+          />
+        )}
 
         <div className="flex flex-col gap-2 mx-4 text-(--gray-1) text-[15px]">
           {!!post.data.selftext && (

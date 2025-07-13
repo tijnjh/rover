@@ -70,6 +70,7 @@ export interface Link extends Thing {
       clicked: boolean
       domain: string
       hidden: boolean
+      is_gallery: boolean
       is_self: boolean
       likes: boolean
       link_flair_text: string
@@ -77,7 +78,17 @@ export interface Link extends Thing {
       locked: boolean
       media: object
       media_embed: object
+      media_metadata: {
+        s: {
+          u: string
+        }
+      }[]
       num_comments: number
+      gallery_data: {
+        items: {
+          media_id: number
+        }[]
+      }
       over_18: boolean
       permalink: string
       saved: boolean
