@@ -18,7 +18,7 @@ export default function SubredditPage({ subreddit }: { subreddit: string }) {
 
       <IonContent color="light">
         <FeedView
-          url={`https://www.reddit.com/r/${subreddit}.json`}
+          path={`/r/${subreddit}.json`}
           queryKey={[`subreddit-${subreddit}`]}
         />
       </IonContent>

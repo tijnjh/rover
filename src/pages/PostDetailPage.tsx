@@ -1,11 +1,12 @@
 import type * as Reddit from '@/lib/reddit-types.ts'
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar, useIonToast } from '@ionic/react'
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react'
 import { useQuery } from '@tanstack/react-query'
 import { haptic } from 'ios-haptics'
 import { effetch } from 'tsuite'
 import LoadingIndicator from '@/components/common/LoadingIndicator'
 import Comment from '@/components/features/comment/Comment'
 import Post from '@/components/features/post/Post'
+import { useAuth } from '@/lib/auth-context'
 import { presentError } from '@/lib/utils'
 
 type PostDetailResult = [
@@ -28,11 +29,13 @@ export default function PostDetailPage({
   subreddit: string
   id: string
 }) {
+  const { apiBase } = useAuth()
+
   const { data, error, isPending } = useQuery({
     queryKey: [`detail-${id}`],
     queryFn: () =>
       effetch<PostDetailResult>(
-        `https://www.reddit.com/r/${subreddit}/comments/${id}.json`,
+        `${apiBase}/r/${subreddit}/comments/${id}.json`,
       ),
   })
 

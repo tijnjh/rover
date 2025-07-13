@@ -16,7 +16,7 @@ export default function PopularPostsPage() {
 
       <IonContent color="light">
         <FeedView
-          url="https://www.reddit.com/hot.json"
+          path="/hot.json"
           queryKey={['feed-hot']}
         />
       </IonContent>

@@ -5,20 +5,19 @@ import { useEffect, useState } from 'react'
 import { effetch } from 'tsuite'
 import LoadingIndicator from '@/components/common/LoadingIndicator'
 import Post from '@/components/features/post/Post'
+import { useAuth } from '@/lib/auth-context'
 import { presentError } from '@/lib/utils'
 
 const POST_LIMIT = 8
 
-export default function FeedView({ queryKey, url }: { queryKey: string[], url: string }) {
+export default function FeedView({ queryKey, path }: { queryKey: string[], path: string }) {
   const [entries, setEntries] = useState<Reddit.Link[]>([])
   const [lastEntryId, setLastEntryId] = useState<string>()
+  const { apiBase } = useAuth()
 
   const { isPending, error, data, refetch } = useQuery({
     queryKey,
-    queryFn: () =>
-      effetch<Reddit.Thing & { data: { children: Reddit.Link[] } }>(
-        `${url}?limit=${POST_LIMIT}&after=t3_${lastEntryId ?? '0'}`,
-      ),
+    queryFn: () => effetch<Reddit.Thing & { data: { children: Reddit.Link[] } }>(`${apiBase}${path}?limit=${POST_LIMIT}&after=t3_${lastEntryId ?? '0'}`),
     placeholderData: keepPreviousData,
   })
 
