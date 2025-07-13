@@ -146,10 +146,10 @@ export default function AccountPage() {
                     <p className="text-(--ion-color-medium) text-center">
                       Sign in to access your Reddit account, vote on posts, save posts, comment and much more!
                     </p>
-                    <IonButton disabled={!!clientId} expand="block" onClick={handleLoginClick}>
+                    <IonButton disabled={!clientId} expand="block" onClick={handleLoginClick}>
                       Sign In with Reddit
                     </IonButton>
-                    {!!clientId && (
+                    {!clientId && (
                       <p className="text-(--ion-color-medium) text-center">
                         Before you can sign in, you need to set a client id in settings.
                       </p>

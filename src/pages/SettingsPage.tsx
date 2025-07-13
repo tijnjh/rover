@@ -55,7 +55,7 @@ export default function SettingsPage() {
                   <strong>
                     http://
                     {URL.parse(location.href)?.host}
-                    /accounts
+                    /account
                   </strong>
                 </li>
               </ul>
