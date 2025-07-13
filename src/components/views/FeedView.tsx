@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks-extra/no-direct-set-state-in-use-effect */
 import type * as Reddit from '@/lib/reddit-types.ts'
 import { IonContent, IonInfiniteScroll, IonInfiniteScrollContent, IonList, useIonToast } from '@ionic/react'
 import { keepPreviousData, useQuery } from '@tanstack/react-query'
@@ -10,18 +11,60 @@ import { presentError } from '@/lib/utils'
 
 const POST_LIMIT = 8
 
-export default function FeedView({ queryKey, path }: { queryKey: string[], path: string }) {
+export type SortOptions = 'best' | 'hot' | 'new' | 'top:hour' | 'top:day' | 'top:week' | 'top:month' | 'top:year' | 'top:all'
+
+export default function FeedView({ queryKey, path, sort }: { queryKey: string[], path: string, sort?: SortOptions }) {
   const [entries, setEntries] = useState<Reddit.Link[]>([])
   const [lastEntryId, setLastEntryId] = useState<string>()
   const { apiBase } = useAuth()
 
-  const { isPending, error, data, refetch } = useQuery({
+  function getSortConfig() {
+    if (!sort)
+      return { pathSegment: '' }
+
+    if (sort.startsWith('top:')) {
+      const timePeriod = sort.split(':')[1]
+      return {
+        pathSegment: '/top',
+        params: { t: timePeriod },
+      }
+    }
+
+    return {
+      pathSegment: `/${sort}`,
+    }
+  }
+
+  function getRequestUrl() {
+    const { pathSegment, params } = getSortConfig()
+
+    const queryParams = new URLSearchParams({ limit: String(POST_LIMIT), ...params })
+
+    if (lastEntryId) {
+      queryParams.set('after', `t3_${lastEntryId}`)
+    }
+
+    return `${apiBase}${path}${pathSegment}?${queryParams.toString()}`
+  }
+
+  const { isPending, error, data, refetch, isRefetching, isRefetchError } = useQuery({
     queryKey,
-    queryFn: () => effetch<Reddit.Thing & { data: { children: Reddit.Link[] } }>(`${apiBase}${path}?limit=${POST_LIMIT}&after=t3_${lastEntryId ?? '0'}`),
+    queryFn: () => effetch<Reddit.Thing & { data: { children: Reddit.Link[] } }>(getRequestUrl()),
     placeholderData: keepPreviousData,
   })
 
+  useEffect(() => {
+    refetch()
+    setEntries([])
+    setLastEntryId(undefined)
+    console.log('Refetching feed with sort:', sort)
+  }, [sort, refetch])
+
   const [present] = useIonToast()
+
+  useEffect(() => {
+    console.log(isPending)
+  }, [isPending])
 
   useEffect(() => {
     if (data?.data.children) {
@@ -44,8 +87,12 @@ export default function FeedView({ queryKey, path }: { queryKey: string[], path:
     )
   }
 
-  if (isPending && entries.length === 0) {
+  if ((isPending && entries.length === 0) || isRefetching) {
     return <LoadingIndicator />
+  }
+
+  if (entries.length === 0) {
+    refetch()
   }
 
   return (

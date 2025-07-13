@@ -20,6 +20,7 @@
     "html-escaper": "^3.0.3",
     "ionicons": "^8.0.13",
     "ios-haptics": "^0.0.8",
+    "nuqs": "^2.4.3",
     "react": "19.1.0",
     "react-animate-height": "^3.2.3",
     "react-dom": "19.1.0",
