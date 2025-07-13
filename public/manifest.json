@@ -1,8 +1,0 @@
-{
-  "short_name": "Rover",
-  "name": "Rover for Reddit",
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff"
-}
