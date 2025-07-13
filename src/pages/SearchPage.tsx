@@ -1,14 +1,4 @@
-import {
-  IonContent,
-  IonHeader,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonPage,
-  IonSearchbar,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/react'
+import { IonContent, IonHeader, IonItem, IonLabel, IonList, IonPage, IonSearchbar, IonTitle, IonToolbar } from '@ionic/react'
 import { useState } from 'react'
 
 export default function SearchPage() {

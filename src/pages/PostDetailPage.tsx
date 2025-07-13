@@ -1,15 +1,5 @@
 import type * as Reddit from '@/lib/reddit-types.ts'
-import {
-  IonBackButton,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonList,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-  useIonToast,
-} from '@ionic/react'
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonList, IonPage, IonTitle, IonToolbar, useIonToast } from '@ionic/react'
 import { useQuery } from '@tanstack/react-query'
 import { haptic } from 'ios-haptics'
 import { effetch } from 'tsuite'

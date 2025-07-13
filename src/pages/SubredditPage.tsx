@@ -1,12 +1,4 @@
-import {
-  IonBackButton,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/react'
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react'
 import FeedView from '@/components/views/FeedView.tsx'
 
 export default function SubredditPage({ subreddit }: { subreddit: string }) {

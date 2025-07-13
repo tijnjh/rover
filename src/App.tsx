@@ -1,36 +1,17 @@
-import {
-  IonApp,
-  IonIcon,
-  IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
-  setupIonicReact,
-} from '@ionic/react'
+import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact } from '@ionic/react'
 import { IonReactRouter } from '@ionic/react-router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime.js'
-
 import updateLocale from 'dayjs/plugin/updateLocale.js'
-import {
-  cog,
-  mail,
-  personCircleOutline,
-  search,
-  telescope,
-} from 'ionicons/icons'
+import { cog, mail, personCircleOutline, search, telescope } from 'ionicons/icons'
 import { Redirect, Route } from 'react-router'
 import AccountPage from './pages/AccountPage.tsx'
 import MessagesPage from './pages/MessagesPage.tsx'
-
 import PostDetailPage from './pages/PostDetailPage.tsx'
-
 import PopularPage from './pages/posts/PopularPostsPage.tsx'
 import PostsPage from './pages/posts/PostsPage.tsx'
 import SearchPage from './pages/SearchPage.tsx'
-
 import SettingsPage from './pages/SettingsPage.tsx'
 import SubredditPage from './pages/SubredditPage.tsx'
 import '@ionic/react/css/core.css'
@@ -38,7 +19,6 @@ import '@ionic/react/css/normalize.css'
 import '@ionic/react/css/structure.css'
 import '@ionic/react/css/typography.css'
 import './App.css'
-
 import '@ionic/react/css/palettes/dark.system.css'
 
 const queryClient = new QueryClient()

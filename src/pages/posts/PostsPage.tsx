@@ -1,14 +1,4 @@
-import {
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/react'
+import { IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react'
 import { trendingUp } from 'ionicons/icons'
 
 export default function PostsPage() {

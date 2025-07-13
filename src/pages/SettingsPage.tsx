@@ -1,13 +1,4 @@
-import {
-  IonContent,
-  IonHeader,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/react'
+import { IonContent, IonHeader, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar } from '@ionic/react'
 
 export default function SettingsPage() {
   return (

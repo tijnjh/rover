@@ -1,11 +1,5 @@
 import type * as Reddit from '@/lib/reddit-types.ts'
-import {
-  IonContent,
-  IonInfiniteScroll,
-  IonInfiniteScrollContent,
-  IonList,
-  useIonToast,
-} from '@ionic/react'
+import { IonContent, IonInfiniteScroll, IonInfiniteScrollContent, IonList, useIonToast } from '@ionic/react'
 import { keepPreviousData, useQuery } from '@tanstack/react-query'
 import { haptic } from 'ios-haptics'
 import { useEffect, useState } from 'react'
