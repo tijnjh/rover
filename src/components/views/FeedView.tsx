@@ -10,8 +10,8 @@ import { keepPreviousData, useQuery } from '@tanstack/react-query'
 import { haptic } from 'ios-haptics'
 import { useEffect, useState } from 'react'
 import { effetch } from 'tsuite'
-import LoadingIndicator from '@/components/common/LoadingIndicator.tsx'
-import Post from '@/components/thing/Post.tsx'
+import LoadingIndicator from '@/components/common/LoadingIndicator'
+import Post from '@/components/features/post/Post'
 
 const POST_LIMIT = 8
 

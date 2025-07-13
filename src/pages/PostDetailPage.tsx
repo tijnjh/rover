@@ -13,9 +13,9 @@ import {
 import { useQuery } from '@tanstack/react-query'
 import { haptic } from 'ios-haptics'
 import { effetch } from 'tsuite'
-import LoadingIndicator from '@/components/common/LoadingIndicator.tsx'
-import Comment from '@/components/thing/Comment.tsx'
-import Post from '@/components/thing/Post.tsx'
+import LoadingIndicator from '@/components/common/LoadingIndicator'
+import Comment from '@/components/features/comment/Comment'
+import Post from '@/components/features/post/Post'
 
 type PostDetailResult = [
   {

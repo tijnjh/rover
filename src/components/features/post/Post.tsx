@@ -10,8 +10,8 @@ import {
   timeOutline,
 } from 'ionicons/icons'
 
-import Flair from '@/components/common/Flair.tsx'
-import Media from '@/components/common/Media.tsx'
+import Flair from '@/components/features/flair/Flair'
+import Media from '@/components/features/media/Media'
 import { formatNumber } from '@/lib/utils.ts'
 
 function transformPermalink(url: string) {

@@ -6,7 +6,7 @@ import { arrowUp, lockClosed, timeOutline } from 'ionicons/icons'
 import { haptic } from 'ios-haptics'
 import { useState } from 'react'
 import AnimateHeight from 'react-animate-height'
-import Flair from '@/components/common/Flair.tsx'
+import Flair from '@/components/features/flair/Flair'
 import { formatNumber } from '@/lib/utils.ts'
 import './Comment.css'
 
