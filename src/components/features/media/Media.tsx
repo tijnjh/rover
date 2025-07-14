@@ -75,7 +75,7 @@ function Video({ post, className }: { post: Reddit.Link, className?: string }) {
             e.preventDefault()
             setIsMuted(prev => !prev)
           }}
-          className="absolute z-[999] text-white flex top-auto items-center justify-center p-2 rounded-md size-10 bg-black/80 bottom-2 right-2"
+          className="absolute z-[999] text-white !text-2xl flex top-auto items-center justify-center p-2 rounded-md! size-10 bg-black/80 bottom-2 right-2"
         >
           {isMuted ? <IonIcon icon={volumeMute} /> : <IonIcon icon={volumeHigh} />}
         </button>
