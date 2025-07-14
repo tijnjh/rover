@@ -1,14 +1,20 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { NuqsAdapter } from 'nuqs/adapters/react'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
+import { AuthProvider } from './lib/auth-context.tsx'
 
-const container = document.getElementById('root')
-const root = createRoot(container as HTMLElement)
-root.render(
+const queryClient = new QueryClient()
+
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <NuqsAdapter>
-      <App />
-    </NuqsAdapter>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <NuqsAdapter>
+          <App />
+        </NuqsAdapter>
+      </AuthProvider>
+    </QueryClientProvider>
   </StrictMode>,
 )

@@ -1,12 +1,10 @@
 import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact } from '@ionic/react'
 import { IonReactRouter } from '@ionic/react-router'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime.js'
 import updateLocale from 'dayjs/plugin/updateLocale.js'
 import { cog, mail, personCircleOutline, search, telescope } from 'ionicons/icons'
 import { Redirect, Route } from 'react-router'
-import { AuthProvider } from './lib/auth-context'
 import AccountPage from './pages/AccountPage.tsx'
 import MessagesPage from './pages/MessagesPage.tsx'
 import PostDetailPage from './pages/PostDetailPage.tsx'
@@ -21,8 +19,6 @@ import '@ionic/react/css/structure.css'
 import '@ionic/react/css/typography.css'
 import './App.css'
 import '@ionic/react/css/palettes/dark.system.css'
-
-const queryClient = new QueryClient()
 
 setupIonicReact()
 
@@ -50,8 +46,6 @@ dayjs.updateLocale('en', {
 
 export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
         <IonApp>
           <IonReactRouter>
             <IonTabs>
@@ -129,7 +123,5 @@ export default function App() {
             </IonTabs>
           </IonReactRouter>
         </IonApp>
-      </AuthProvider>
-    </QueryClientProvider>
   )
 }
