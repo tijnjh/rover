@@ -35,17 +35,16 @@ export default function SettingsPage() {
         </IonList>
 
         <IonNote>
-          <div className="mx-4">
-
-            <p>
-              1. Sign into your reddit account (on desktop) and go here:
+          <ol className="pr-4 pl-10 space-y-4">
+            <li>
+              Sign into your reddit account (on desktop) and go here:
               {' '}
               <a href="https://reddit.com/prefs/apps">https://reddit.com/prefs/apps</a>
-            </p>
+            </li>
 
-            <p>2. Click the "are you a developer? create an app..." button</p>
-            <p>
-              3. Fill in the fields
+            <li>Click the "are you a developer? create an app..." button</li>
+            <li>
+              Fill in the fields
               <ul>
                 <li>name: Use whatever</li>
                 <li>Choose Installed App</li>
@@ -59,12 +58,11 @@ export default function SettingsPage() {
                   </strong>
                 </li>
               </ul>
-            </p>
-            <p>4. Click "create app" </p>
-            <p>5. After creating the app you'll get a client identifier; It'll be a bunch of random characters.</p>
-            <p>6. Enter it here</p>
-          </div>
-
+            </li>
+            <li>Click "create app" </li>
+            <li>After creating the app you'll get a client identifier; It'll be a bunch of random characters.</li>
+            <li>Enter it here</li>
+          </ol>
         </IonNote>
 
       </IonContent>
