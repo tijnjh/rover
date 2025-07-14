@@ -47,7 +47,7 @@ export default function FeedView({ queryKey, path, sort }: { queryKey: string[],
     return `${apiBase}${path}${pathSegment}?${queryParams.toString()}`
   }
 
-  const { isPending, error, data, refetch, isRefetching, isRefetchError } = useQuery({
+  const { isPending, error, data, refetch, isRefetching } = useQuery({
     queryKey,
     queryFn: () => effetch<Reddit.Thing & { data: { children: Reddit.Link[] } }>(getRequestUrl()),
     placeholderData: keepPreviousData,
@@ -57,14 +57,9 @@ export default function FeedView({ queryKey, path, sort }: { queryKey: string[],
     refetch()
     setEntries([])
     setLastEntryId(undefined)
-    console.log('Refetching feed with sort:', sort)
   }, [sort, refetch])
 
   const [present] = useIonToast()
-
-  useEffect(() => {
-    console.log(isPending)
-  }, [isPending])
 
   useEffect(() => {
     if (data?.data.children) {
